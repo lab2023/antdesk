@@ -3,6 +3,12 @@ tr:
     models:
       role: Rol
       user: Kullanıcı
+      admin: Yönetici
+      contributor: Müşteri
+      category: Kategori
+      article: Makale
+      video: Video
+      application: Uygulama
     attributes:
       created_at: "Oluşturulma tarihi"
       updated_at: "Güncelleme tarihi"
@@ -18,3 +24,19 @@ tr:
         locale: Dil
         remember_me: Beni Hatırla
         time_zone: Zaman Dilimi
+      category:
+        name: Kategori adı
+        icon_name: İkon
+      contributor:
+        name: İsim Soyisim
+      article:
+        name: Makale Başlığı
+        body: İçerik
+      video:
+        name: Video Başlığı
+        provider: Emded Kodu
+      application:
+        cname_domain: Domain
+        name: İsim
+        twitter_username: Tiwitter Kuallnıcı Adınız
+        facebook_page: Facebook Sayfa Adresiniz

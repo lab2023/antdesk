@@ -1,0 +1,5 @@
+= title t('tt.new', resource_name: Video.model_name.human)
+- content_for :toolbar_left do
+  = link_to(contributors_application_videos_path , class: 'btn', rel: 'tooltip', title: t('tooltips.back')) do
+    %i.icon-arrow-left
+= render 'form'

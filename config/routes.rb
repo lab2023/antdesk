@@ -1,9 +1,22 @@
 Support::Application.routes.draw do
+
+  devise_for :contributors, :controllers => { :sessions => "contributors/sessions" }
+  namespace :contributors do
+    resources :dashboard
+    resources :applications do
+      resources :articles
+      resources :videos
+      resources :categories
+    end
+
+  end
+
   root :to => 'pages#index'
 
    devise_for :admins, :controllers => { :sessions => "admins/sessions" }
    namespace :admins do
     resources :dashboard
+    resources :applications
   end
 
 

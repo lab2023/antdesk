@@ -15,19 +15,25 @@ class ApplicationController < ActionController::Base
     redirect_to root_url
   end
 
+begin
   def after_sign_in_path_for(resource_or_scope)
-    unless current_admin
-      super
-    else
+    if current_admin
       admins_dashboard_index_path
+    elsif current_contributor
+      contributors_dashboard_index_path
+    else
+      super
     end
   end
 
   def after_sign_out_path_for(resource_or_scope)
-    unless current_admin
-      super
-    else
+    if current_admin
       admins_dashboard_index_path
+    elsif current_contributor
+      contributors_dashboard_index_path
+    else
+      super
     end
   end
+end
 end

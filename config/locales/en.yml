@@ -4,3 +4,6 @@
 en:
   hello: "Hello world"
   search: "Search"
+  categories: "Categories"
+  articles: "Articles"
+  videos: "Videos"

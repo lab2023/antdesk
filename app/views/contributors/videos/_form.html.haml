@@ -1,0 +1,9 @@
+= simple_form_for([:contributors, @application, @video]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :provider
+
+  .form-actions
+    = f.button :submit

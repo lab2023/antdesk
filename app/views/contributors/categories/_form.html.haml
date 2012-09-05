@@ -1,0 +1,9 @@
+= simple_form_for([:contributors, @application,  @category]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :icon_name
+
+  .form-actions
+    = f.button :submit
