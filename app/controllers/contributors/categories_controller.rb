@@ -1,7 +1,7 @@
 class Contributors::CategoriesController < Contributors::ApplicationController
   before_filter :find_application
   def index
-    @categories = Category.all
+    @categories = @application.categories.all
     respond_with(:contributors, @application, @categories)
   end
 
@@ -21,9 +21,8 @@ class Contributors::CategoriesController < Contributors::ApplicationController
 
   def create
     @category = Category.new(params[:category])
+    @category.application_id = @application.id;
     @category.save
-    @application.categories << @category
-    @application.save
     respond_with(:contributors, @application, @category)
   end
 

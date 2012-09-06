@@ -6,16 +6,17 @@
   = link_to(new_contributors_application_video_path(@application), class: 'btn', rel: 'tooltip', title: t('tooltips.new')) do
     %i.icon-plus
 
-
 %table.table.table-striped.table-bordered.table-condensed
   %tr
+    %th Kategoriler
     %th Video Başlığı
-    %th Embed Kodu
     %th{:width => "120px"}
   - @videos.each do |video|
     %tr
+      %td
+        - video.categories.each do |category|
+          %span.label= "#{category.name.camelize}"
       %td= video.name
-      %td= video.provider
       %td
         = link_to(contributors_application_video_path(@application, video), class: 'btn', rel: 'tooltip', title: t('tooltips.show')) do
           %i.icon-eye-open

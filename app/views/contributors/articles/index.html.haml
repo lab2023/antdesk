@@ -6,16 +6,17 @@
   = link_to(new_contributors_application_article_path(@application), class: 'btn', rel: 'tooltip', title: t('tooltips.new')) do
     %i.icon-plus
 
-
 %table.table.table-striped.table-bordered.table-condensed
   %tr
+    %th Kategoriler
     %th Makale Başlığı
-    %th İçerik
     %th{:width => "120px"}
   - @articles.each do |article|
     %tr
+      %td
+        - article.categories.each do |category|
+          %span.label= "#{category.name.camelize}"
       %td= article.name
-      %td= article.body
       %td
         = link_to(contributors_application_article_path(@application, article), class: 'btn', rel: 'tooltip', title: t('tooltips.show')) do
           %i.icon-eye-open

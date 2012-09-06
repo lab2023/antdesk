@@ -7,15 +7,19 @@
 
 %table.table.table-striped.table-bordered.table-condensed
   %tr
-    %th Uygulama Adresi
+    %th Katkıcılar
     %th Uygulama Adı
+    %th Uygulama Adresi
     %th Twitter Kullanıcı Adı
     %th Facebook Sayfa Adresi
     %th{:width => "120px"}
   - @applications.each do |application|
     %tr
-      %td= application.cname_domain
+      %td
+        - application.contributors.each do |contributor|
+          %span.label= "#{contributor.name.camelize}"
       %td= application.name
+      %td= application.cname_domain
       %td= application.twitter_username
       %td= application.facebook_page
       %td

@@ -6,10 +6,9 @@
   = link_to(new_contributors_application_category_path(@application), class: 'btn', rel: 'tooltip', title: t('tooltips.new')) do
     %i.icon-plus
 
-
 %table.table.table-striped.table-bordered.table-condensed
   %tr
-    %th Name
+    %th Kategori Adı
     %th İkon
     %th{:width => "120px"}
   - @categories.each do |category|
