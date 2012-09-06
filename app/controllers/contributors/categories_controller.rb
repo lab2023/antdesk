@@ -1,7 +1,9 @@
 class Contributors::CategoriesController < Contributors::ApplicationController
+
   before_filter :find_application
+
   def index
-    @categories = @application.categories.all
+    @categories = @application.categories
     respond_with(:contributors, @application, @categories)
   end
 

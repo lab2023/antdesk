@@ -1,7 +1,9 @@
 class Contributors::ArticlesController < Contributors::ApplicationController
+
   before_filter :find_application
+
   def index
-    @articles = Article.all
+    @articles = @application.videos
     respond_with(:contributors, @application, @articles)
   end
 

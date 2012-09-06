@@ -1,0 +1,2 @@
+module Contributors::ArticlesHelper
+end

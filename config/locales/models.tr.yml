@@ -32,10 +32,13 @@ tr:
       article:
         name: Makale Başlığı
         body: İçerik
+        categories: Kategorileri Seçiniz
       video:
         name: Video Başlığı
         provider: Emded Kodu
+        categories: Kategorileri Seçiniz
       application:
+        contributors: Katkıcıları Seçiniz
         cname_domain: Domain
         name: İsim
         twitter_username: Tiwitter Kuallnıcı Adınız

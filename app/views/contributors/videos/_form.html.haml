@@ -2,7 +2,7 @@
   = f.error_notification
 
   .form-inputs
-    = f.association :categories, :prompt => "Kategori Seçiniz"
+    = f.association :categories, :collection => @application.categories.all
     = f.input :name
     = f.input :provider
 

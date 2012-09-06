@@ -1,0 +1,2 @@
+module Admins::ApplicationsHelper
+end

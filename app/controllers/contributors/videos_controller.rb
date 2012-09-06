@@ -1,7 +1,9 @@
 class Contributors::VideosController < Contributors::ApplicationController
+
   before_filter :find_application
+
   def index
-    @videos = Video.all
+    @videos = @application.videos
     respond_with(:contributors, @application, @videos)
   end
 
