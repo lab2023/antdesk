@@ -1,4 +1,7 @@
 class Admins::ApplicationsController < Admins::ApplicationController
+
+  load_and_authorize_resource
+
   def index
     @applications = Application.all
     respond_with(@applications)

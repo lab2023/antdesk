@@ -1,6 +1,7 @@
 class Contributors::CategoriesController < Contributors::ApplicationController
 
   before_filter :find_application
+  load_and_authorize_resource
 
   def index
     @categories = @application.categories
@@ -8,7 +9,7 @@ class Contributors::CategoriesController < Contributors::ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
+    @category = @application.categories.find(params[:id])
     respond_with(:contributors, @application, @category)
   end
 
@@ -18,7 +19,7 @@ class Contributors::CategoriesController < Contributors::ApplicationController
   end
 
   def edit
-    @category = Category.find(params[:id])
+    @category = @application.categories.find(params[:id])
   end
 
   def create
@@ -29,13 +30,13 @@ class Contributors::CategoriesController < Contributors::ApplicationController
   end
 
   def update
-    @category = Category.find(params[:id])
+    @category = @application.categories.find(params[:id])
     @category.update_attributes(params[:category])
     respond_with(:contributors, @application, @category)
   end
 
   def destroy
-    @category = Category.find(params[:id])
+    @category = @application.categories.find(params[:id])
     @category.destroy
     respond_with(:contributors, @application, @category)
   end
@@ -43,6 +44,6 @@ class Contributors::CategoriesController < Contributors::ApplicationController
 private
 
   def find_application
-    @application = Application.find(params[:application_id])
+    @application = current_contributor.applications.find(params[:application_id])
   end
 end

@@ -1,0 +1,5 @@
+= title t('tt.show', resource_name: @video.name.human)
+
+= show_for @video do |s|
+  = s.attribute :name
+  = s.attribute :provider

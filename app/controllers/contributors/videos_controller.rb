@@ -1,6 +1,8 @@
 class Contributors::VideosController < Contributors::ApplicationController
 
+  rescue_from ActiveRecord::RecordNotFound, :with => :not_found
   before_filter :find_application
+  load_and_authorize_resource
 
   def index
     @videos = @application.videos
@@ -8,7 +10,7 @@ class Contributors::VideosController < Contributors::ApplicationController
   end
 
   def show
-    @video = Video.find(params[:id])
+    @video = @application.videos.find(params[:id])
     respond_with(:contributors, @application, @video)
   end
 
@@ -18,7 +20,7 @@ class Contributors::VideosController < Contributors::ApplicationController
   end
 
   def edit
-    @video = Video.find(params[:id])
+    @video = @application.videos.find(params[:id])
   end
 
   def create
@@ -28,13 +30,13 @@ class Contributors::VideosController < Contributors::ApplicationController
   end
 
   def update
-    @video = Video.find(params[:id])
+    @video = @application.videos.find(params[:id])
     @video.update_attributes(params[:video])
     respond_with(:contributors, @application, @video)
   end
 
   def destroy
-    @video = Video.find(params[:id])
+    @video = @application.videos.find(params[:id])
     @video.destroy
     respond_with(:contributors, @application, @video)
   end
@@ -42,7 +44,7 @@ class Contributors::VideosController < Contributors::ApplicationController
   private
 
   def find_application
-    @application = Application.find(params[:application_id])
+    @application = current_contributor.applications.find(params[:application_id])
   end
 
 end

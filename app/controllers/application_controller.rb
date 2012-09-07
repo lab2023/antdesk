@@ -35,5 +35,10 @@ begin
       super
     end
   end
+
+  def current_application
+    @current_application = Application.find_by_cname_domain!(request.env['HTTP_HOST']) ? nil : Application.find_by_cname_domain!(request.env['HTTP_HOST'])
+  end
+
 end
 end

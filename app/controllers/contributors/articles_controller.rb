@@ -1,14 +1,15 @@
 class Contributors::ArticlesController < Contributors::ApplicationController
 
   before_filter :find_application
+  load_and_authorize_resource
 
   def index
-    @articles = @application.videos
+    @articles = @application.articles
     respond_with(:contributors, @application, @articles)
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = @application.articles.find(params[:id])
     respond_with(:contributors, @application, @article)
   end
 
@@ -18,7 +19,7 @@ class Contributors::ArticlesController < Contributors::ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
+    @article = @application.articles.find(params[:id])
   end
 
   def create
@@ -28,13 +29,13 @@ class Contributors::ArticlesController < Contributors::ApplicationController
   end
 
   def update
-    @article = Article.find(params[:id])
+    @article = @application.articles.find(params[:id])
     @article.update_attributes(params[:article])
     respond_with(:contributors, @application, @article)
   end
 
   def destroy
-    @article = Article.find(params[:id])
+    @article = @application.articles.find(params[:id])
     @article.destroy
     respond_with(:contributors, @application, @article)
   end
@@ -42,8 +43,7 @@ class Contributors::ArticlesController < Contributors::ApplicationController
 private
 
   def find_application
-    @application = Application.find(params[:application_id])
+    @application = current_contributor.applications.find(params[:application_id])
   end
-
 
 end

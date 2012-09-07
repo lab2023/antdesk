@@ -10,4 +10,7 @@ class Contributors::ApplicationController < ActionController::Base
 
   protect_from_forgery
 
+  def current_ability
+    @current_ability ||= ContributorAbility.new(current_contributor)
+  end
 end
