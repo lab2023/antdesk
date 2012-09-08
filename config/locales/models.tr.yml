@@ -32,11 +32,14 @@ tr:
       article:
         name: Makale Başlığı
         body: İçerik
+        rendered_body: İçerik
         categories: Kategorileri Seçiniz
+        status: Durum
       video:
         name: Video Başlığı
         provider: Emded Kodu
         categories: Kategorileri Seçiniz
+        status: Durum
       application:
         contributors: Katkıcıları Seçiniz
         cname_domain: Domain

@@ -10,13 +10,15 @@
   %tr
     %th Kategoriler
     %th Makale Başlığı
+    %th Durum
     %th{:width => "120px"}
   - @articles.each do |article|
     %tr
       %td
         - article.categories.each do |category|
           %span.label= "#{category.name.camelize}"
-      %td= article.name
+      %td= article.name.camelize
+      %td= article.status ? 'Yayında':'Yayında Değil'
       %td
         = link_to(contributors_application_article_path(@application, article), class: 'btn', rel: 'tooltip', title: t('tooltips.show')) do
           %i.icon-eye-open

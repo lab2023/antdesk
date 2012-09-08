@@ -6,6 +6,7 @@
 
 %table.table.table-striped.table-bordered.table-condensed
   %tr
+    %th Logo
     %th Uygulama Adresi
     %th Uygulama Adı
     %th Twitter Kullanıcı Adı
@@ -13,6 +14,9 @@
     %th{:width => "120px"}
   - @applications.each do |application|
     %tr
+      %td
+        .thumbnail
+          = image_tag application.logo, :size => "150x40"
       %td= application.cname_domain
       %td= application.name
       %td= application.twitter_username

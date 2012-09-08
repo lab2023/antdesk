@@ -36,6 +36,7 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+gem 'markdownizer'
 gem "paperclip"
 gem "will_paginate"
 gem "bootstrap-will_paginate"

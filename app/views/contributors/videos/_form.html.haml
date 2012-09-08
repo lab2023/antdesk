@@ -5,6 +5,8 @@
     = f.association :categories, :collection => @application.categories.all
     = f.input :name
     = f.input :provider
+    = f.input :status, :inline_label => 'Yayınla'
+
 
   .form-actions
     = f.button :submit

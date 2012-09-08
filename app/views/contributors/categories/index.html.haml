@@ -8,13 +8,16 @@
 
 %table.table.table-striped.table-bordered.table-condensed
   %tr
-    %th Kategori Adı
     %th İkon
+    %th Kategori Adı
     %th{:width => "120px"}
   - @categories.each do |category|
     %tr
-      %td= category.name
-      %td= category.icon_name
+      %td
+        %i{:class => "#{category.icon_name}"}
+        = category.icon_name
+      %td
+        = category.name
       %td
         = link_to(contributors_application_category_path(@application, category), class: 'btn', rel: 'tooltip', title: t('tooltips.show')) do
           %i.icon-eye-open

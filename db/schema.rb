@@ -55,8 +55,10 @@ ActiveRecord::Schema.define(:version => 20120905092520) do
   create_table "articles", :force => true do |t|
     t.string   "name"
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.text     "rendered_body"
+    t.boolean  "status"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "articles_categories", :id => false, :force => true do |t|
@@ -134,6 +136,7 @@ ActiveRecord::Schema.define(:version => 20120905092520) do
   create_table "videos", :force => true do |t|
     t.string   "name"
     t.text     "provider"
+    t.boolean  "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
