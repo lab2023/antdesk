@@ -7,12 +7,16 @@ class ApplicationController < ActionController::Base
   WillPaginate.per_page = 10
 
   before_filter :authenticate_user!
-
+  before_filter :current_application
   protect_from_forgery
 
   rescue_from CanCan::AccessDenied do |exception|
     flash[:error] = "Yetkisiz erişim."
     redirect_to root_url
+  end
+
+  def current_application
+    @current_application = Application.find_by_cname_domain!(request.env['HTTP_HOST']) ? nil : Application.find_by_cname_domain!(request.env['HTTP_HOST'])
   end
 
 begin
@@ -35,10 +39,5 @@ begin
       super
     end
   end
-
-  def current_application
-    @current_application = Application.find_by_cname_domain!(request.env['HTTP_HOST']) ? nil : Application.find_by_cname_domain!(request.env['HTTP_HOST'])
-  end
-
 end
 end

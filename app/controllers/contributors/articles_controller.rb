@@ -1,7 +1,4 @@
-require 'redcarpet/compat'
 class Contributors::ArticlesController < Contributors::ApplicationController
-
-  before_filter :find_application
   load_and_authorize_resource
 
   def index
@@ -43,10 +40,6 @@ class Contributors::ArticlesController < Contributors::ApplicationController
   end
 
 private
-
-  def find_application
-    @application = current_contributor.applications.find(params[:application_id])
-  end
 
   def markdown(text)
     options = [:hard_wrap, :filter_html, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode]
