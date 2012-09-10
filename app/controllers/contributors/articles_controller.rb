@@ -1,3 +1,4 @@
+require 'redcarpet/compat'
 class Contributors::ArticlesController < Contributors::ApplicationController
 
   before_filter :find_application
@@ -10,6 +11,7 @@ class Contributors::ArticlesController < Contributors::ApplicationController
 
   def show
     @article = @application.articles.find(params[:id])
+    @article.body =markdown(@article.body)
     respond_with(:contributors, @application, @article)
   end
 
@@ -44,6 +46,11 @@ private
 
   def find_application
     @application = current_contributor.applications.find(params[:application_id])
+  end
+
+  def markdown(text)
+    options = [:hard_wrap, :filter_html, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode]
+    Markdown.new(text, *options).to_html.html_safe
   end
 
 end

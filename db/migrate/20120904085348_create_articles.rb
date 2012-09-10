@@ -3,7 +3,6 @@ class CreateArticles < ActiveRecord::Migration
     create_table :articles do |t|
       t.string :name
       t.text :body
-      t.text :rendered_body
       t.boolean :status
 
       t.timestamps
