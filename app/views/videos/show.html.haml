@@ -1,5 +1,4 @@
-= title t('tt.show', resource_name: @video.name.human)
+= title @video.name.camelize
 
-= show_for @video do |s|
-  = s.attribute :name
-  = s.attribute :provider
+.video{:style => 'text-align: center'}
+  = @video.provider

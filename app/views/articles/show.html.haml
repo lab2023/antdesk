@@ -1,5 +1,4 @@
-= title t('tt.show', resource_name: @article.name.human)
+= title @article.name.camelize
 
-= show_for @article do |s|
-  = s.attribute :name
-  = s.attribute :body
+%div
+  = @article.body

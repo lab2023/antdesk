@@ -16,7 +16,7 @@
     %tr
       %td
         .thumbnail
-          = image_tag application.logo, :size => "150x40"
+          = image_tag application.logo.url(:small)
       %td= application.cname_domain
       %td= application.name
       %td= application.twitter_username

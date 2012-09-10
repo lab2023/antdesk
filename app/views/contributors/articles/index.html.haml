@@ -16,7 +16,9 @@
     %tr
       %td
         - article.categories.each do |category|
-          %span.label= "#{category.name.camelize}"
+          %span.label
+            %i{:class => "#{category.icon_name}"}
+            = "#{category.name.camelize}"
       %td= article.name.camelize
       %td= article.status ? 'Yayında':'Yayında Değil'
       %td

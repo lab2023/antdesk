@@ -37,7 +37,7 @@ tr:
         status: Durum
       video:
         name: Video Başlığı
-        provider: Emded Kodu
+        provider: Emded
         categories: Kategorileri Seçiniz
         status: Durum
       application:

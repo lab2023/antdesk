@@ -16,7 +16,9 @@
     %tr
       %td
         - video.categories.each do |category|
-          %span.label= "#{category.name.camelize}"
+          %span.label
+            %i{:class => "#{category.icon_name}"}
+            = "#{category.name.camelize}"
       %td= video.name.camelize
       %td= video.status ? 'Yayında':'Yayında Değil'
       %td

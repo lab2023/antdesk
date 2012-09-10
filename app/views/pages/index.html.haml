@@ -1,2 +1,16 @@
-= render 'support'
 
+%table.table.table-striped.table-bordered.table-condensed
+  %tr
+  - @application.categories.each do |category|
+    %tr
+      %td
+        %i{:class => "#{category.icon_name}"}
+        = category.name.camelize
+        %h3 Makaleler
+        - category.articles.each do |article|
+          %tr
+            %td= article.name.camelize
+        %h3 Videolar
+        - category.videos.each do |video|
+          %tr
+            %td= video.name.camelize
