@@ -36,6 +36,7 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+gem "friendly_id"
 gem 'redcarpet'
 gem "paperclip"
 gem "will_paginate"

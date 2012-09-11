@@ -2,7 +2,7 @@ class Contributors::VideosController < Contributors::ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found
   load_and_authorize_resource
-
+  before_filter :find_application
   def index
     @videos = @application.videos
     respond_with(:contributors, @application, @videos)
@@ -41,4 +41,9 @@ class Contributors::VideosController < Contributors::ApplicationController
     respond_with(:contributors, @application, @video)
   end
 
+private
+
+  def find_application
+    @application = current_contributor.applications.find(params[:application_id])
+  end
 end

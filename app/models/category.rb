@@ -9,4 +9,7 @@ class Category < ActiveRecord::Base
 
   before_destroy {articles.clear}
   before_destroy {videos.clear}
+
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :history]
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120905092520) do
+ActiveRecord::Schema.define(:version => 20120911074749) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -58,7 +58,10 @@ ActiveRecord::Schema.define(:version => 20120905092520) do
     t.boolean  "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "slug"
   end
+
+  add_index "articles", ["slug"], :name => "index_articles_on_slug"
 
   create_table "articles_categories", :id => false, :force => true do |t|
     t.integer "category_id"
@@ -73,9 +76,11 @@ ActiveRecord::Schema.define(:version => 20120905092520) do
     t.string   "icon_name"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.string   "slug"
   end
 
   add_index "categories", ["application_id"], :name => "index_categories_on_application_id"
+  add_index "categories", ["slug"], :name => "index_categories_on_slug"
 
   create_table "categories_videos", :id => false, :force => true do |t|
     t.integer "category_id"
@@ -102,6 +107,17 @@ ActiveRecord::Schema.define(:version => 20120905092520) do
 
   add_index "contributors", ["email"], :name => "index_contributors_on_email", :unique => true
   add_index "contributors", ["reset_password_token"], :name => "index_contributors_on_reset_password_token", :unique => true
+
+  create_table "friendly_id_slugs", :force => true do |t|
+    t.string   "slug",                         :null => false
+    t.integer  "sluggable_id",                 :null => false
+    t.string   "sluggable_type", :limit => 40
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
+  add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -138,6 +154,9 @@ ActiveRecord::Schema.define(:version => 20120905092520) do
     t.boolean  "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "slug"
   end
+
+  add_index "videos", ["slug"], :name => "index_videos_on_slug"
 
 end

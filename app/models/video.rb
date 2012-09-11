@@ -4,4 +4,7 @@ class Video < ActiveRecord::Base
   has_and_belongs_to_many :categories
 
   validates_presence_of :name, :provider, :categories
+
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :history]
 end

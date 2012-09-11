@@ -1,6 +1,7 @@
 class Contributors::ArticlesController < Contributors::ApplicationController
   load_and_authorize_resource
-
+  before_filter :find_application
+  require 'redcarpet/compat'
   def index
     @articles = @application.articles
     respond_with(:contributors, @application, @articles)
@@ -46,4 +47,7 @@ private
     Markdown.new(text, *options).to_html.html_safe
   end
 
+  def find_application
+    @application = current_contributor.applications.find(params[:application_id])
+  end
 end
