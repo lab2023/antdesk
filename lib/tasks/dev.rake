@@ -16,6 +16,8 @@ namespace :dev do
     @user = User.create!(name: "Lab2023 User", email: "user@lab2023.com", password: "12341234", password_confirmation: "12341234")
     # Admin
     @admin = Admin.create!(name: "Lab2023 Admin", email: "admin@lab2023.com", password: "12341234")
+    #contributor
+    @admin = Admin.create!(name: "Lab2023 Contributor", email: "contributor@lab2023.com", password: "12341234")
 
   end
 end

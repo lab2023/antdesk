@@ -38,7 +38,6 @@ gem 'jquery-rails'
 # gem 'debugger'
 gem "friendly_id"
 gem 'redcarpet'
-gem "paperclip"
 gem "will_paginate"
 gem "bootstrap-will_paginate"
 gem "will-paginate-i18n", "~> 0.1.7"
