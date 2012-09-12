@@ -7,4 +7,8 @@ class Video < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :name, use: [:slugged, :history]
+
+  def self.search(search)
+    where('videos.name LIKE ?', "%#{search}%")
+  end
 end

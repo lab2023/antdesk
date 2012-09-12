@@ -1,16 +1,12 @@
-class VideosController < Contributors::ApplicationController
-  before_filter :current_application
+class VideosController < ApplicationController
 
 
   def show
     @video = @current_application.videos.find(params[:id])
     @video.provider = @video.provider.html_safe
+    add_breadcrumb "Anasayfa", :root_path
+    add_breadcrumb @video.name.camelize, :video_path
     respond_with(@video)
   end
 
-private
-
-  def current_application
-    @current_application = !Application.find_by_cname_domain(request.env['HTTP_HOST']) ? nil : Application.find_by_cname_domain(request.env['HTTP_HOST'])
-  end
 end

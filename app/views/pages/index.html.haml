@@ -1,16 +1,25 @@
+- if params[:search]
+  = render 'search'
+- elsif !@current_application
+  = render 'support'
+- else
 
-%table.table.table-striped.table-bordered.table-condensed
-  %tr
-  - @current_application.categories.each do |category|
-    %tr
-      %td
-        %i{:class => "#{category.icon_name}"}
-        = category.name.camelize
-        %h3 Makaleler
-        - category.articles.each do |article|
-          %tr
-            %td= article.name.camelize
-        %h3 Videolar
-        - category.videos.each do |video|
-          %tr
-            %td= video.name.camelize
+  = title(@current_application.name.camelize)
+  .row-fluid
+    .span4
+      = render 'categories'
+
+    .span8
+      %form.form-inline{:action => "#{pages_path}", :method => "get"}
+        %input.input-xxlarge{:style => "height: 30px; width: 675px;", :name => "search", :type => "text", :placeholder => "Bir sorunuz mu var? Aramaya buradan başlayın."}
+          %input.btn.btn-large.btn-primary{:type => "submit", :value => "Ara"}
+
+      = render 'articles'
+      = render 'videos'
+
+  %hr
+    %footer
+      %p
+      ©
+      = @current_application.name.camelize
+      2012

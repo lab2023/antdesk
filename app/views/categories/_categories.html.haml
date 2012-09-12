@@ -1,0 +1,11 @@
+%h1 Kategoriler
+%p
+%p
+%ul.nav.nav-tabs.nav-stacked{:style => "margin-bottom:0px;"}
+  - @current_application.categories.each do |category|
+    %li
+      = link_to(category_path(category)) do
+        %i{:class => "#{category.icon_name}"}
+        = category.name.camelize
+        %span{:style => "font-weight:normal;"}
+          = "(#{category.articles.count + category.videos.count})"

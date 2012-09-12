@@ -7,4 +7,8 @@ class Article < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :name, use: [:slugged, :history]
+
+  def self.search(search)
+    where('articles.name LIKE ?', "%#{search}%")
+  end
 end

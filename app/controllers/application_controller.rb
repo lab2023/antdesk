@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   self.responder = ApplicationResponder
   respond_to :html, :json, :xml
   WillPaginate.per_page = 10
+  before_filter :current_application
 
   protect_from_forgery
 
@@ -13,12 +14,17 @@ class ApplicationController < ActionController::Base
     redirect_to root_url
   end
 
-begin
+  def current_application
+    @current_application = !Application.find_by_cname_domain(request.env['HTTP_HOST']) ? nil : Application.find_by_cname_domain(request.env['HTTP_HOST'])
+  end
+
   def after_sign_in_path_for(resource_or_scope)
     if current_admin
       admins_dashboard_index_path
     elsif current_contributor
       contributors_dashboard_index_path
+    elsif current_user
+      root_path
     else
       super
     end
@@ -29,9 +35,11 @@ begin
       admins_dashboard_index_path
     elsif current_contributor
       contributors_dashboard_index_path
+    elsif current_user
+      root_path
     else
       super
     end
   end
-end
+
 end

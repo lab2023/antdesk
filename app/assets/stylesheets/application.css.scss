@@ -21,12 +21,17 @@ body {
 }
 @import "bootstrap-responsive";
 .brand {
-  margin-left: 35px !important;
+  margin-left: 0px !important;
   img {
     position: absolute;
-    margin-left: -40px;
     margin-top: -5px;
   }
+}
+.span2 {
+  display: inline-block;
+  padding: 4px 10px 4px;
+  margin: 5px 5px 6px;
+  line-height: 18px;
 }
 
 div.container, div.container-fluid  {

@@ -1,0 +1,7 @@
+%h1 En Son Yüklenen Videolar
+.row-fluid
+- @current_application.videos.uniq.last(10).each do |video|
+  %p
+    %h4
+      = link_to(video_path(video)) do
+        = video.name.camelize

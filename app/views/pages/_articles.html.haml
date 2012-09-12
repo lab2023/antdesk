@@ -1,0 +1,7 @@
+%h1 En Son Yazılan Makaleler
+.row-fluid
+- @current_application.articles.uniq.last(10).each do |article|
+  %p
+    %h4
+      = link_to(article_path(article)) do
+        = article.name.camelize

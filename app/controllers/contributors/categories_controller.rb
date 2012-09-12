@@ -1,7 +1,6 @@
 class Contributors::CategoriesController < Contributors::ApplicationController
 
   load_and_authorize_resource
-  before_filter :find_application
   def index
     @categories = @application.categories
     respond_with(:contributors, @application, @categories)
@@ -40,9 +39,4 @@ class Contributors::CategoriesController < Contributors::ApplicationController
     respond_with(:contributors, @application, @category)
   end
 
-private
-
-  def find_application
-    @application = current_contributor.applications.find(params[:application_id])
-  end
 end

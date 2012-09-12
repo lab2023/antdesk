@@ -12,6 +12,7 @@ Support::Application.routes.draw do
   end
 
   root :to => 'pages#index'
+  resources :pages
 
    devise_for :admins, :controllers => { :sessions => "admins/sessions" }
    namespace :admins do

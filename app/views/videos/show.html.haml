@@ -1,4 +1,12 @@
 = title @video.name.camelize
+%ul.breadcrumb
+  = '<li>'.html_safe
+  = render_breadcrumbs :separator => '<span class="divider">/</span></li><li>'.html_safe
+  = '</li>'.html_safe
 
-.video{:style => 'text-align: center'}
-  = @video.provider
+.row-fluid
+  .span3
+    = render 'categories'
+  .span9
+    .video{:style => 'text-align: center'}
+      = @video.provider

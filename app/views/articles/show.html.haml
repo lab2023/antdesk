@@ -1,4 +1,10 @@
 = title @article.name.camelize
-
-%div
-  = @article.body
+%ul.breadcrumb
+  = '<li>'.html_safe
+  = render_breadcrumbs :separator => '<span class="divider">/</span></li><li>'.html_safe
+  = '</li>'.html_safe
+.row-fluid
+  .span3
+    = render 'categories'
+  .span9
+    = @article.body
