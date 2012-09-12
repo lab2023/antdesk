@@ -1,7 +1,7 @@
 %h1 Kategoriler
 %p
 %p
-%ul.nav.nav-tabs.nav-stacked{:style => "margin-bottom:0px;"}
+%ul.nav.nav-tabs.nav-stacked
   - @current_application.categories.each do |category|
     %li
       = link_to(category_path(category)) do

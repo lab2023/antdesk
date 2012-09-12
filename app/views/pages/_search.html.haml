@@ -1,24 +1,32 @@
 = title('Arama')
-%ul.breadcrumb
-  = '<li>'.html_safe
-  = render_breadcrumbs :separator => '<span class="divider">/</span></li><li>'.html_safe
-  = '</li>'.html_safe
 
 .row-fluid
-  .span3
+  .span4
     = render 'categories'
-  .span9
-    %h1 Bulunan Makaleler
-    .row-fluid
-    - @search_articles.each do |article|
+  .span8
+    %form.form-inline{:action => "#{pages_path}", :method => "get"}
+      %input.input-xxlarge{:style => "height: 30px; width: 675px;", :name => "search", :type => "text", :placeholder => "Bir sorunuz mu var? Aramaya buradan başlayın."}
+        %input.btn.btn-large.btn-primary{:type => "submit", :value => "Ara"}
+
+    - if @search_articles.count > 0
+      %h1 Bulunan Makaleler
+      .row-fluid
+      - @search_articles.each do |article|
+        %p
+          %h4
+            = link_to(article_path(article)) do
+              = article.name.camelize
+    - else
+      %h1 Makale Bulunamadı
       %p
-        %h4
-          = link_to(article_path(article)) do
-            = article.name.camelize
-    %h1 Bulunan Videolar
-    .row-fluid
-    - @search_videos.each do |video|
       %p
-        %h4
-          = link_to(video_path(video)) do
-            = video.name.camelize
+    - if @search_videos.count > 0
+      %h1 Bulunan Videolar
+      .row-fluid
+      - @search_videos.each do |video|
+        %p
+          %h4
+            = link_to(video_path(video)) do
+              = video.name.camelize
+    - else
+      %h1 Video Bulunamadı
