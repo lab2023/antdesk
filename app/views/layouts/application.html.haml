@@ -30,8 +30,11 @@
             %span.icon-bar
             %span.icon-bar
           %a.brand{:href => "/"}
-            = @current_application.name.camelize
-            Destek
+            - if @current_application
+              = @current_application.name.camelize
+              Destek
+            - else
+              Support2023
           .nav-collapse
             %ul.nav.pull-right
               - if current_user
