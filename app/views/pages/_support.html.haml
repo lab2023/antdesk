@@ -2,52 +2,21 @@
   .row-fluid
     .span12
       .hero-unit
-        %h1 Hello, world!
+        %h1 Hoşgeldiniz
         %p This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
         %p
-          %a.btn.btn-primary.btn-large Learn more »
+          %a.btn.btn-primary.btn-large{:href =>"#{new_contributor_registration_path}"} Hemen Başlayın
+
       .row-fluid
+      - @applications.each do |application|
         .span4
-          %h2 Heading
-          %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+          %h2
+            = application.name.camelize
           %p
-            %a.btn{:href => "#"} View details »
-        / /span
-        .span4
-          %h2 Heading
-          %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+            = image_tag application.logo.url(:small)
           %p
-            %a.btn{:href => "#"} View details »
-        / /span
-        .span4
-          %h2 Heading
-          %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-          %p
-            %a.btn{:href => "#"} View details »
-        / /span
-      / /row
-      .row-fluid
-        .span4
-          %h2 Heading
-          %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-          %p
-            %a.btn{:href => "#"} View details »
-        / /span
-        .span4
-          %h2 Heading
-          %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-          %p
-            %a.btn{:href => "#"} View details »
-        / /span
-        .span4
-          %h2 Heading
-          %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-          %p
-            %a.btn{:href => "#"} View details »
-        / /span
-      / /row
-    / /span
-  / /row
+            = link_to(application.cname_domain)
+
   %hr
     %footer
       %p © lab2023 - internet teknolojileri 2012

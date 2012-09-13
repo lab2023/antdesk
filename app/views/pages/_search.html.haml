@@ -1,9 +1,9 @@
 = title('Arama')
 
 .row-fluid
-  .span4
+  .span3
     = render 'categories'
-  .span8
+  .span9
     %form.form-inline{:action => "#{pages_path}", :method => "get"}
       %input.input-xxlarge{:style => "height: 30px; width: 675px;", :name => "search", :type => "text", :placeholder => "Bir sorunuz mu var? Aramaya buradan başlayın."}
         %input.btn.btn-large.btn-primary{:type => "submit", :value => "Ara"}

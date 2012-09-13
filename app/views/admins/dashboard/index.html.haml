@@ -3,6 +3,10 @@
 - content_for :toolbar_left do
   = link_to(new_admins_application_path, class: 'btn', rel: 'tooltip', title: t('tooltips.new')) do
     %i.icon-plus
+- content_for :toolbar_right do
+  = link_to(admins_contributors_path, class: 'btn', rel: 'tooltip', title: t('contributors')) do
+    %i.icon-eye-open
+    =t('contributors')
 
 %table.table.table-striped.table-bordered.table-condensed
   %tr

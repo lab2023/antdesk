@@ -6,10 +6,10 @@
 
   = title(@current_application.name.camelize)
   .row-fluid
-    .span4
+    .span3
       = render 'categories'
 
-    .span8
+    .span9
       %form.form-inline{:action => "#{pages_path}", :method => "get"}
         %input.input-xxlarge{:style => "height: 30px; width: 675px;", :name => "search", :type => "text", :placeholder => "Bir sorunuz mu var? Aramaya buradan başlayın."}
           %input.btn.btn-large.btn-primary{:type => "submit", :value => "Ara"}
@@ -17,10 +17,11 @@
       = render 'articles'
       = render 'videos'
 
-    .fb-like-box{"data-border-color" => "#ddd", "data-header" => "false", "data-href" => "http://www.facebook.com/#{@current_application.facebook_page}", "data-show-faces" => "true", "data-stream" => "false", "data-width" => "357"}
 
   %hr
     %footer
+      .fb-like-box{:style =>"float:right", "data-border-color" => "#ddd", "data-header" => "false", "data-href" => "http://www.facebook.com/#{@current_application.facebook_page}", "data-show-faces" => "true", "data-stream" => "false", "data-width" => "357"}
+
       %p
       ©
       = @current_application.name.camelize

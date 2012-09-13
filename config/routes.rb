@@ -18,6 +18,7 @@ Support::Application.routes.draw do
    namespace :admins do
     resources :dashboard
     resources :applications
+    resources :contributors
   end
 
 

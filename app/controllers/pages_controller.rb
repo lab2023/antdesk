@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_filter :authenticate_user!, :only => :index
 
   def index
+    @applications = Application.last(3)
     if params[:search]
       @search_articles = @current_application.articles.search(params[:search]).uniq
       @search_videos = @current_application.videos.search(params[:search]).uniq
