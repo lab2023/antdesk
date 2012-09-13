@@ -2,11 +2,10 @@
 
 .row-fluid
   .span3
-    = render 'categories'
+    %ul.nav.nav-tabs.nav-stacked
+      = render @current_application.categories
   .span9
-    %form.form-inline{:action => "#{pages_path}", :method => "get"}
-      %input.input-xxlarge{:style => "height: 30px; width: 675px;", :name => "search", :type => "text", :placeholder => "Bir sorunuz mu var? Aramaya buradan başlayın."}
-        %input.btn.btn-large.btn-primary{:type => "submit", :value => "Ara"}
+    = render :partial => 'partials/search'
 
     - if @search_articles.count > 0
       %h1 Bulunan Makaleler
@@ -17,7 +16,7 @@
             = link_to(article_path(article)) do
               = article.name.camelize
     - else
-      %h1 Makale Bulunamadı
+      %p Makale Bulunamadı
       %p
       %p
     - if @search_videos.count > 0
@@ -29,4 +28,4 @@
             = link_to(video_path(video)) do
               = video.name.camelize
     - else
-      %h1 Video Bulunamadı
+      %p Video Bulunamadı

@@ -1,9 +1,0 @@
-%h1 Kategoriler
-%p
-%p
-- @current_application.categories.each do |category|
-  %h3
-    = link_to(category_path(category)) do
-      %i{:class => "#{category.icon_name}", :style => "margin-top:2px;"}
-      = category.name.camelize
-  %p

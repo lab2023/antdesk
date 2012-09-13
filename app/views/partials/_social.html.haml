@@ -1,0 +1,13 @@
+.fb-like-box{:style =>"float:right", "data-border-color" => "#ddd", "data-header" => "false", "data-href" => "http://www.facebook.com/#{@current_application.facebook_page}", "data-show-faces" => "true", "data-stream" => "false", "data-width" => "260"}
+#tweets{:style =>"float:right"}
+  #tweet Son tweet yükleniyor...
+%script{:src => "http://twitterjs.googlecode.com/svn/trunk/src/twitter.min.js", :type => "text/javascript"}
+
+:javascript
+     getTwitters('tweet', {
+       id: '#{@current_application.twitter_username}',
+       count: 3,
+       enableLinks: true,
+       clearContents: true,
+       template: '%text% - %time%'
+     });
