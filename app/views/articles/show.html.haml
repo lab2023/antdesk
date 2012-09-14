@@ -10,4 +10,4 @@
       %p
       = render :partial => 'partials/social'
   .span9
-    = @article.body
+    = markdown(@article.body)

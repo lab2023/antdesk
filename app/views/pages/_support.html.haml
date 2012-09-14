@@ -1,21 +1,11 @@
 .container-fluid
   .row-fluid
     .span12
-      .hero-unit
-        %h1 Hoşgeldiniz
+      .hero-unit{:style => "text-align:center;"}
+        %h1 Support2023
         %p This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
         %p
-          %a.btn.btn-primary.btn-large{:href =>"#{new_contributor_registration_path}"} Hemen Başlayın
-    - @applications.each do |application|
-      %span3{:style => "text-align:center;"}
-
-        %h2
-          = application.name.camelize
-        %p
-          = image_tag application.logo.url(:small)
-        %p
-          = link_to(application.cname_domain)
-
-  %hr
-    %footer
-      %p © lab2023 - internet teknolojileri 2012
+          %iframe{:allowfullscreen => "", :frameborder => "0", :height => "315", :src => "http://www.youtube.com/embed/Em7eJJV-0ag?rel=0", :width => "560"}
+        %a.btn.btn-info.btn-large{:href =>"#{new_contributor_registration_path}"}
+          %i.icon-white.icon-user
+          Hemen Başlayın

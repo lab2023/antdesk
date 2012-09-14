@@ -9,6 +9,7 @@ class Application < ActiveRecord::Base
   has_attached_file :logo, :default_url => "/assets/missing-image.jpg", :styles => {:small => "100x40#"}
 
   validates_attachment :logo, :presence => true
+  validates :cname_domain, :uniqueness => true
 
   validates_presence_of :cname_domain, :facebook_page, :name, :twitter_username
 end

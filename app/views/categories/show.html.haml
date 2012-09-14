@@ -14,14 +14,14 @@
   .span9
     %h1 Kategoriye Ait Makaleler
     .row-fluid
-    - @current_application.categories.find(@category).articles.uniq.each do |article|
+    - @current_application.categories.find(@category).articles.where('articles.status == ?', true).uniq.each do |article|
       %p
         %h4
           = link_to(article_path(article)) do
             = article.name.camelize
     %h1 Kategoriye Ait Videolar
     .row-fluid
-    - @current_application.categories.find(@category).videos.uniq.each do |video|
+    - @current_application.categories.find(@category).videos.where('videos.status == ?', true).uniq.each do |video|
       %p
         %h4
           = link_to(video_path(video)) do
