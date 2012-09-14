@@ -12,17 +12,28 @@
       %p
       = render :partial => 'partials/social'
   .span9
-    %h1 Kategoriye Ait Makaleler
-    .row-fluid
-    - @current_application.categories.find(@category).articles.where('articles.status == ?', true).uniq.each do |article|
+    - if @current_application.categories.find(@category).articles.count > 0
+      %h1 Kategoriye Ait Makaleler
+      .row-fluid
+      - @current_application.categories.find(@category).articles.where('articles.status == ?', true).uniq.each do |article|
+        %p
+          %h4
+            = link_to(article_path(article)) do
+              = article.name.camelize
+    - else
+      %p Kategoriye Ait Makale Bulunamadı
       %p
-        %h4
-          = link_to(article_path(article)) do
-            = article.name.camelize
-    %h1 Kategoriye Ait Videolar
-    .row-fluid
-    - @current_application.categories.find(@category).videos.where('videos.status == ?', true).uniq.each do |video|
       %p
-        %h4
-          = link_to(video_path(video)) do
-            = video.name.camelize
+
+    - if @current_application.categories.find(@category).videos.count > 0
+      %h1 Kategoriye Ait Videolar
+      .row-fluid
+      - @current_application.categories.find(@category).videos.where('videos.status == ?', true).uniq.each do |video|
+        %p
+          %h4
+            = link_to(video_path(video)) do
+              = video.name.camelize
+    - else
+      %p Kategoriye Ait Video Bulunamadı
+      %p
+      %p
