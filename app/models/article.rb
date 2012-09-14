@@ -11,4 +11,6 @@ class Article < ActiveRecord::Base
   def self.search(search)
     where('articles.name LIKE ?', "%#{search}%").where('articles.status == ?', true)
   end
+
+  scope :active, where(:status => true)
 end

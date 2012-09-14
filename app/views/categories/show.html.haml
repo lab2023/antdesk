@@ -15,7 +15,7 @@
     - if @current_application.categories.find(@category).articles.count > 0
       %h1 Kategoriye Ait Makaleler
       .row-fluid
-      - @current_application.categories.find(@category).articles.where('articles.status == ?', true).uniq.each do |article|
+      - @current_application.categories.find(@category).articles.active.uniq.each do |article|
         %p
           %h4
             = link_to(article_path(article)) do
@@ -28,7 +28,7 @@
     - if @current_application.categories.find(@category).videos.count > 0
       %h1 Kategoriye Ait Videolar
       .row-fluid
-      - @current_application.categories.find(@category).videos.where('videos.status == ?', true).uniq.each do |video|
+      - @current_application.categories.find(@category).videos.active.uniq.each do |video|
         %p
           %h4
             = link_to(video_path(video)) do
