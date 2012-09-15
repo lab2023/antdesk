@@ -4,10 +4,10 @@
   = render_breadcrumbs :separator => '<span class="divider">/</span></li><li>'.html_safe
   = '</li>'.html_safe
 .row-fluid
-  .span4
-    = render 'categories'
-  .span8
-    %form.form-inline{:action => "#{pages_path}", :method => "get"}
-      %input.input-xxlarge{:style => "height: 30px; width: 675px;", :name => "search", :type => "text", :placeholder => "Bir sorunuz mu var? Aramaya buradan başlayın."}
-        %input.btn.btn-large.btn-primary{:type => "submit", :value => "Ara"}
-    = @article.body
+  .span3
+    %ul.nav.nav-tabs.nav-stacked
+      = render @current_application.categories
+      %p
+      = render :partial => 'partials/social'
+  .span9
+    = markdown(@article.body)

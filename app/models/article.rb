@@ -9,6 +9,8 @@ class Article < ActiveRecord::Base
   friendly_id :name, use: [:slugged, :history]
 
   def self.search(search)
-    where('articles.name LIKE ?', "%#{search}%")
+    where('articles.name LIKE ?', "%#{search}%").where('articles.status == ?', true)
   end
+
+  scope :active, where(:status => true)
 end

@@ -22,7 +22,7 @@ class Contributors::CategoriesController < Contributors::ApplicationController
 
   def create
     @category = Category.new(params[:category])
-    @category.application_id = @application.id;
+    @category.application_id = @application.id
     @category.save
     respond_with(:contributors, @application, @category)
   end

@@ -6,23 +6,34 @@
 
 
 .row-fluid
-  .span4
-    = render 'categories'
-  .span8
-    %form.form-inline{:action => "#{pages_path}", :method => "get"}
-      %input.input-xxlarge{:style => "height: 30px; width: 675px;", :name => "search", :type => "text", :placeholder => "Bir sorunuz mu var? Aramaya buradan başlayın."}
-        %input.btn.btn-large.btn-primary{:type => "submit", :value => "Ara"}
-    %h1 Kategoriye Ait Makaleler
-    .row-fluid
-    - @current_application.categories.find(@category).articles.uniq.each do |article|
+  .span3
+    %ul.nav.nav-tabs.nav-stacked
+      = render @current_application.categories
       %p
-        %h4
-          = link_to(article_path(article)) do
-            = article.name.camelize
-    %h1 Kategoriye Ait Videolar
-    .row-fluid
-    - @current_application.categories.find(@category).videos.uniq.each do |video|
+      = render :partial => 'partials/social'
+  .span9
+    - if @current_application.categories.find(@category).articles.count > 0
+      %h1 Kategoriye Ait Makaleler
+      .row-fluid
+      - @current_application.categories.find(@category).articles.active.uniq.each do |article|
+        %p
+          %h4
+            = link_to(article_path(article)) do
+              = article.name.camelize
+    - else
+      %p Kategoriye Ait Makale Bulunamadı
       %p
-        %h4
-          = link_to(video_path(video)) do
-            = video.name.camelize
+      %p
+
+    - if @current_application.categories.find(@category).videos.count > 0
+      %h1 Kategoriye Ait Videolar
+      .row-fluid
+      - @current_application.categories.find(@category).videos.active.uniq.each do |video|
+        %p
+          %h4
+            = link_to(video_path(video)) do
+              = video.name.camelize
+    - else
+      %p Kategoriye Ait Video Bulunamadı
+      %p
+      %p

@@ -1,24 +1,31 @@
 = title('Arama')
-%ul.breadcrumb
-  = '<li>'.html_safe
-  = render_breadcrumbs :separator => '<span class="divider">/</span></li><li>'.html_safe
-  = '</li>'.html_safe
 
 .row-fluid
   .span3
-    = render 'categories'
+    %ul.nav.nav-tabs.nav-stacked
+      = render @current_application.categories
   .span9
-    %h1 Bulunan Makaleler
-    .row-fluid
-    - @search_articles.each do |article|
+    = render :partial => 'partials/search'
+
+    - if @search_articles.count > 0
+      %h1 Bulunan Makaleler
+      .row-fluid
+      - @search_articles.each do |article|
+        %p
+          %h4
+            = link_to(article_path(article)) do
+              = article.name.camelize
+    - else
+      %p Makale Bulunamadı
       %p
-        %h4
-          = link_to(article_path(article)) do
-            = article.name.camelize
-    %h1 Bulunan Videolar
-    .row-fluid
-    - @search_videos.each do |video|
       %p
-        %h4
-          = link_to(video_path(video)) do
-            = video.name.camelize
+    - if @search_videos.count > 0
+      %h1 Bulunan Videolar
+      .row-fluid
+      - @search_videos.each do |video|
+        %p
+          %h4
+            = link_to(video_path(video)) do
+              = video.name.camelize
+    - else
+      %p Video Bulunamadı

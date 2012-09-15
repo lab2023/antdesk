@@ -1,0 +1,7 @@
+%li
+  = link_to(category_path(category)) do
+    %i{:class => "#{category.icon_name}"}
+    = category.name.camelize
+    %span{:style => "font-weight:normal;"}
+      = "(#{category.articles.count + category.videos.count})"
+

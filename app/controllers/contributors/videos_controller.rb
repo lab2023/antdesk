@@ -1,6 +1,4 @@
 class Contributors::VideosController < Contributors::ApplicationController
-
-  rescue_from ActiveRecord::RecordNotFound, :with => :not_found
   load_and_authorize_resource
   before_filter :find_application
   def index

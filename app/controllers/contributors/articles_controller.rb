@@ -1,7 +1,6 @@
 class Contributors::ArticlesController < Contributors::ApplicationController
   load_and_authorize_resource
   before_filter :find_application
-  require 'redcarpet/compat'
   def index
     @articles = @application.articles.uniq
     respond_with(:contributors, @application, @articles)
@@ -9,7 +8,6 @@ class Contributors::ArticlesController < Contributors::ApplicationController
 
   def show
     @article = @application.articles.find(params[:id])
-    @article.body =markdown(@article.body)
     respond_with(:contributors, @application, @article)
   end
 
@@ -38,13 +36,6 @@ class Contributors::ArticlesController < Contributors::ApplicationController
     @article = @application.articles.find(params[:id])
     @article.destroy
     respond_with(:contributors, @application, @article)
-  end
-
-private
-
-  def markdown(text)
-    options = [:hard_wrap, :filter_html, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode]
-    Markdown.new(text, *options).to_html.html_safe
   end
 
 end
