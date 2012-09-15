@@ -6,7 +6,7 @@ class PagesController < ApplicationController
       @search_articles = @current_application.articles.search(params[:search]).uniq
       @search_videos = @current_application.videos.search(params[:search]).uniq
       add_breadcrumb "Arama", :root_path
-    else
+    elsif @current_application.present?
       @articles = @current_application.articles.active
       @videos = @current_application.videos.active
       add_breadcrumb "Anasayfa", :root_path

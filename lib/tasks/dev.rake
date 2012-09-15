@@ -17,7 +17,7 @@ namespace :dev do
     # Admin
     @admin = Admin.create!(name: "lab2023 Admin", email: "admin@lab2023.com", password: "12341234")
     #contributor
-    @admin = Admin.create!(name: "lab2023 Contributor", email: "contributor@lab2023.com", password: "12341234")
+    @admin = Contributor.create!(name: "lab2023 Contributor", email: "contributor@lab2023.com", password: "12341234")
 
   end
 end
