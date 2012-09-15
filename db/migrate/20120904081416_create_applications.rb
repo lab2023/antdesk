@@ -5,6 +5,7 @@ class CreateApplications < ActiveRecord::Migration
       t.string :name
       t.string :twitter_username
       t.string :facebook_page
+      t.integer :owner_id
 
       t.timestamps
     end

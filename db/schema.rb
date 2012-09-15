@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20120911074749) do
     t.string   "name"
     t.string   "twitter_username"
     t.string   "facebook_page"
+    t.integer  "owner_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.string   "logo_file_name"
@@ -50,7 +51,7 @@ ActiveRecord::Schema.define(:version => 20120911074749) do
     t.integer "application_id"
   end
 
-  add_index "applications_contributors", ["contributor_id", "application_id"], :name => "index_applications_contributors"
+  add_index "applications_contributors", ["contributor_id", "application_id"], :name => "index_applications_contributors", :unique => true
 
   create_table "articles", :force => true do |t|
     t.string   "name"

@@ -10,4 +10,8 @@ class Contributor < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_and_belongs_to_many :applications
+
+  def self.search(search)
+    where('contributor.email LIKE ?', "%#{search}%")
+  end
 end

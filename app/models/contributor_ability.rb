@@ -13,7 +13,7 @@ class ContributorAbility
     can :manage, Video #do |video|
       #video.application.contributors.include(user)
     #end
-    can :read, Application
+    can :manage, Application
 
   end
 end

@@ -6,6 +6,7 @@ en:
     show: Show
     back: Back
     change_password: Change password
+    add_to_administrator: Add to administrator
   confirm: Are you sure?
   accounts:
     new:

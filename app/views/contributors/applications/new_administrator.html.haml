@@ -1,0 +1,7 @@
+= title t('tt.administrator', resource_name: Application.model_name.human)
+= form_tag(administrator_contributors_application_path(@application), :method => :post ) do
+
+  .form-inputs
+    = email_field_tag(:email)
+
+    = submit_tag "Gönder"

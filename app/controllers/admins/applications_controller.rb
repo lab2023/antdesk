@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Admins::ApplicationsController < Admins::ApplicationController
 
   load_and_authorize_resource
@@ -6,6 +7,7 @@ class Admins::ApplicationsController < Admins::ApplicationController
     @application = Application.find(params[:id])
     respond_with(:admins, @application)
   end
+
 
   def new
     @application = Application.new
@@ -18,6 +20,7 @@ class Admins::ApplicationsController < Admins::ApplicationController
 
   def create
     @application = Application.new(params[:application])
+    @application.contributors << Contributor.find(@application.owner_id)
     @application.save
     respond_with(:admins, @application)
   end
@@ -33,4 +36,7 @@ class Admins::ApplicationsController < Admins::ApplicationController
     @application.destroy
     respond_with(:admins, @application)
   end
+
+
+
 end

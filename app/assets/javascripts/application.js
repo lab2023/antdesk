@@ -11,11 +11,13 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-datepicker
 //= require jquery.validate
 //= require jquery.validate.bootstrap
+//= require_tree
 
 $(document).ready(function() {
     $('form.validate').validate();
