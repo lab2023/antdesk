@@ -43,6 +43,7 @@ tr:
       application:
         contributors: Katkıcıları Seçiniz
         cname_domain: Domain
+        username: Kullanıcı Adı
         name: İsim
         twitter_username: Tiwitter Kuallnıcı Adınız
         facebook_page: Facebook Sayfa Adresiniz
