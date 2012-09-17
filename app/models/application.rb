@@ -4,8 +4,8 @@ class Application < ActiveRecord::Base
   belongs_to :owner, :class_name => 'Contributor', :foreign_key => 'owner_id'
   has_many :categories, :dependent => :destroy
 
-  has_many :videos, :through  => :categories
-  has_many :articles, :through => :categories
+  has_many :videos, :through  => :categories, :uniq => true
+  has_many :articles, :through => :categories, :uniq => true
 
   has_attached_file :logo, :default_url => "/assets/missing-image.jpg", :styles => {:small => "100x40#"}
 

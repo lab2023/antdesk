@@ -2,7 +2,7 @@ class Contributors::ArticlesController < Contributors::ApplicationController
   load_and_authorize_resource
   before_filter :find_application
   def index
-    @articles = @application.articles.uniq.paginate(:page => params[:page])
+    @articles = @application.articles.paginate(:page => params[:page])
     respond_with(:contributors, @application, @articles)
   end
 
