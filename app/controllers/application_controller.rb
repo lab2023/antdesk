@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   helper :all
   self.responder = ApplicationResponder
   respond_to :html, :json, :xml
-  WillPaginate.per_page = 10
+  WillPaginate.per_page = 20
   before_filter :current_application
 
   protect_from_forgery

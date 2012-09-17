@@ -2,7 +2,7 @@ class Contributors::VideosController < Contributors::ApplicationController
   load_and_authorize_resource
   before_filter :find_application
   def index
-    @videos = @application.videos.uniq
+    @videos = @application.videos.uniq.paginate(:page => params[:page])
     respond_with(:contributors, @application, @videos)
   end
 

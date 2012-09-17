@@ -2,7 +2,7 @@ class Contributors::CategoriesController < Contributors::ApplicationController
 
   load_and_authorize_resource
   def index
-    @categories = @application.categories
+    @categories = @application.categories.paginate(:page => params[:page])
     respond_with(:contributors, @application, @categories)
   end
 

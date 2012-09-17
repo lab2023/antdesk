@@ -28,3 +28,5 @@
           %i.icon-pencil
         = link_to(contributors_application_article_path(@application, article), class: 'btn', confirm: t('confirm'), method: :delete, rel: 'tooltip', title: t('tooltips.delete')) do
           %i.icon-trash
+%hr/
+= will_paginate @articles

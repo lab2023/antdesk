@@ -24,3 +24,5 @@
       %td
         = link_to(contributors_application_path(application), class: 'btn', rel: 'tooltip', title: t('tooltips.show')) do
           %i.icon-eye-open
+%hr/
+= will_paginate @articles
