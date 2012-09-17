@@ -15,7 +15,11 @@ class ApplicationController < ActionController::Base
   end
 
   def current_application
-    @current_application = !Application.find_by_cname_domain(request.env['HTTP_HOST']) ? nil : Application.find_by_cname_domain(request.env['HTTP_HOST'])
+    if request.env['REMOTE_HOST'] === request.domain
+      @current_application = ("www" === request.subdomain) || "" === request.subdomain ? nil : Application.find_by_username(request.subdomains.first)
+    else
+      @current_application = Application.find_by_cname_domain(request.env['HTTP_HOST'])
+    end
   end
 
   def after_sign_in_path_for(resource_or_scope)
