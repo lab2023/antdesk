@@ -1,4 +1,4 @@
-= simple_form_for([:contributors, @application,  @category]) do |f|
+= simple_form_for([:contributors, @application,  @category], :defaults => {:input_html => {:class => 'span12', :rows => 3}}) do |f|
   = f.error_notification
 
   .form-inputs

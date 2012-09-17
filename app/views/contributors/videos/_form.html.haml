@@ -1,11 +1,11 @@
-= simple_form_for([:contributors, @application, @video]) do |f|
+= simple_form_for([:contributors, @application, @video], :defaults => {:input_html => {:class => 'span12', :rows => 3}}) do |f|
   = f.error_notification
 
   .form-inputs
     = f.association :categories, :collection => @application.categories.all
     = f.input :name
-    = f.input :provider
-    = f.input :status, :inline_label => 'Yayınla'
+    = f.input :provider, :input_html => {:rows => 15}
+    = f.input :status, :inline_label => 'Yayınla', :input_html => {:class => ''}
 
 
   .form-actions
