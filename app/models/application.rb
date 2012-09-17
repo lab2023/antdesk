@@ -1,5 +1,5 @@
 class Application < ActiveRecord::Base
-  attr_accessible :cname_domain, :facebook_page, :name, :twitter_username, :logo, :owner_name, :username
+  attr_accessible :cname_domain, :facebook_page, :name, :twitter_username, :logo, :owner_name, :subdomain
   has_and_belongs_to_many :contributors
   belongs_to :owner, :class_name => 'Contributor', :foreign_key => 'owner_id'
   has_many :categories, :dependent => :destroy
@@ -11,9 +11,9 @@ class Application < ActiveRecord::Base
 
   validates_attachment :logo, :presence => true
   validates :cname_domain, :uniqueness => true
-  validates :username, :uniqueness => true
+  validates :subdomain, :uniqueness => true
 
-  validates_presence_of :cname_domain, :facebook_page, :name, :twitter_username, :owner_name, :username
+  validates_presence_of :cname_domain, :facebook_page, :name, :twitter_username, :owner_name, :subdomain
 
   def owner_name
     owner.try(:name)

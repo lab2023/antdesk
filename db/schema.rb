@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(:version => 20120911074749) do
   create_table "applications", :force => true do |t|
     t.string   "cname_domain"
     t.string   "name"
-    t.string   "username"
+    t.string   "subdomain"
     t.string   "twitter_username"
     t.string   "facebook_page"
     t.integer  "owner_id"
