@@ -1,5 +1,4 @@
 Support::Application.routes.draw do
-
   get "administrator/index"
 
   devise_for :contributors, :controllers => { :sessions => "contributors/sessions" }
@@ -19,8 +18,6 @@ Support::Application.routes.draw do
   root :to => 'pages#index'
   resources :pages
 
-
-
    devise_for :admins, :controllers => { :sessions => "admins/sessions" }
    namespace :admins do
     resources :dashboard
@@ -31,8 +28,6 @@ Support::Application.routes.draw do
       end
     end
    end
-
-
 
   devise_for :users
   resources :articles

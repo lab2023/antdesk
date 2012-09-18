@@ -4,6 +4,8 @@
   .span3
     %ul.nav.nav-tabs.nav-stacked
       = render @current_application.categories
+      %p
+      = render :partial => 'partials/social'
   .span9
     = render :partial => 'partials/search'
 
