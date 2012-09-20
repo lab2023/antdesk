@@ -74,10 +74,10 @@ namespace :deploy do
 end
 
 set :default_environment, {
-    'PATH'         => "/home/deployer/.rvm/gems/ruby-1.9.3-p194/bin:/home/deployer/.rvm/gems/ruby-1.9.3-p194@global/bin:/home/deployer/.rvm/rubies/ruby-1.9.3-p194/bin:/home/deployer/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$PATH",
+    'PATH'         => "/home/deployer/.rvm/gems/ruby-1.9.3-p194/bin:/home/deployer/.rvm/gems/ruby-1.9.3-p194@support/bin:/home/deployer/.rvm/rubies/ruby-1.9.3-p194/bin:/home/deployer/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$PATH",
     'RUBY_VERSION' => 'ruby-1.9.3-p194',
     'GEM_HOME'     => '/home/deployer/.rvm/gems/ruby-1.9.3-p194',
-    'GEM_PATH'     => '/home/deployer/.rvm/gems/ruby-1.9.3-p194:/home/deployer/.rvm/gems/ruby-1.9.3-p194@global',
+    'GEM_PATH'     => '/home/deployer/.rvm/gems/ruby-1.9.3-p194:/home/deployer/.rvm/gems/ruby-1.9.3-p194@support',
     'BUNDLE_PATH'  => '/home/deployer/.rvm/gems/ruby-1.9.3-p194/bin/bundle'
 }
 
