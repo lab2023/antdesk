@@ -29,11 +29,12 @@ gem 'jquery-rails'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
+gem 'whenever', :require => false
 # To use debugger
 # gem 'debugger'
 gem "breadcrumbs_on_rails"
@@ -52,6 +53,7 @@ gem "i18n"
 gem "bootstrap-datepicker-rails"
 gem "paperclip"
 gem "therubyracer"
+
 group :assets do
   gem "bootstrap-sass"
   gem "compass-rails"
