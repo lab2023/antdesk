@@ -5,7 +5,7 @@ require "bundler/capistrano"
 server "159.253.35.13", :web, :app, :db, primary: true
 
 
-set :application, "support"
+set :application, "antdesk"
 set :user, "deployer"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
