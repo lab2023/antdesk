@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_application
-    if request.env['REMOTE_HOST'] === request.domain
+    if 'antdesk.com' === request.domain
       @current_application = ("www" === request.subdomain) || "" === request.subdomain ? nil : Application.find_by_subdomain(request.subdomains.first)
     else
       @current_application = Application.find_by_cname_domain(request.env['HTTP_HOST'])
