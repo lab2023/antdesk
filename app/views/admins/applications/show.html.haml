@@ -6,6 +6,8 @@
 
   = link_to(edit_admins_application_path(@application), class: 'btn', rel: 'tooltip', title: t('tooltips.edit')) do
     %i.icon-pencil
+  = link_to(admins_application_path(@application), class: 'btn', confirm: t('confirm'), method: :delete, rel: 'tooltip', title: t('tooltips.delete')) do
+    %i.icon-trash
 
 = show_for @application do |s|
   = s.attribute :cname_domain
