@@ -1,15 +1,16 @@
 require "bundler/capistrano"
 #require 'thinking_sphinx/deploy/capistrano'
-require "whenever/capistrano"
+#require "whenever/capistrano"
 
 server "159.253.35.13", :web, :app, :db, primary: true
+
 
 set :application, "support"
 set :user, "deployer"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
-set :bundle_cmd, '/home/deployer/.rvm/gems/ruby-1.9.3-p194@support/bin/bundle'
+set :bundle_cmd, '/home/deployer/.rvm/gems/ruby-1.9.3-p194@global/bin/bundle'
 
 set :scm, "git"
 set :repository, "git@github.com:lab2023/#{application}.git"
@@ -17,10 +18,10 @@ set :branch, "master"
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
-
+#ssh_options[:keys] = ["~/.ssh/id_rsa"]
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
-after "deploy:symlink", "deploy:update_crontab"
+#after "deploy:symlink", "deploy:update_crontab"
 
 namespace :deploy do
 
@@ -67,17 +68,17 @@ namespace :deploy do
   before "deploy:cold", "deploy:install_bundler"
 
   desc "Update the crontab file"
-  task :update_crontab, :roles => :db do
-    run "cd #{release_path} && whenever --update-crontab #{application}"
-  end
+  #task :update_crontab, :roles => :db do
+  #  run "cd #{release_path} && whenever --update-crontab #{application}"
+  #end
 
 end
 
 set :default_environment, {
-    'PATH'         => "/home/deployer/.rvm/gems/ruby-1.9.3-p194/bin:/home/deployer/.rvm/gems/ruby-1.9.3-p194@support/bin:/home/deployer/.rvm/rubies/ruby-1.9.3-p194/bin:/home/deployer/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$PATH",
+    'PATH'         => "/home/deployer/.rvm/gems/ruby-1.9.3-p194/bin:/home/deployer/.rvm/gems/ruby-1.9.3-p194@global/bin:/home/deployer/.rvm/rubies/ruby-1.9.3-p194/bin:/home/deployer/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$PATH",
     'RUBY_VERSION' => 'ruby-1.9.3-p194',
     'GEM_HOME'     => '/home/deployer/.rvm/gems/ruby-1.9.3-p194',
-    'GEM_PATH'     => '/home/deployer/.rvm/gems/ruby-1.9.3-p194:/home/deployer/.rvm/gems/ruby-1.9.3-p194@support',
+    'GEM_PATH'     => '/home/deployer/.rvm/gems/ruby-1.9.3-p194:/home/deployer/.rvm/gems/ruby-1.9.3-p194@global',
     'BUNDLE_PATH'  => '/home/deployer/.rvm/gems/ruby-1.9.3-p194/bin/bundle'
 }
 
