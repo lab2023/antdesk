@@ -41,7 +41,7 @@ tr:
         categories: Kategorileri Seçiniz
         status: Durum
       application:
-        contributors: Katkıcıları Seçiniz
+        contributors: İçerik Sağlayıcı Seçiniz
         cname_domain: Domain
         subdomain: Kullanıcı Adı
         name: İsim
