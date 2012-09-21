@@ -52,7 +52,7 @@ gem "simple_form"
 gem "i18n"
 gem "bootstrap-datepicker-rails"
 gem "paperclip"
-gem "therubyracer"
+#gem "therubyracer"
 
 group :assets do
   gem "bootstrap-sass"
