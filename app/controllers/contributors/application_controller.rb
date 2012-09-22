@@ -4,7 +4,7 @@ class Contributors::ApplicationController < ActionController::Base
   helper :all
   self.responder = ApplicationResponder
   respond_to :html, :json, :xml
-  WillPaginate.per_page = 20
+  WillPaginate.per_page = 10
   before_filter :authenticate_contributor!
   before_filter :find_application
 

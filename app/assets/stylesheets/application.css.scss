@@ -14,24 +14,31 @@
 */
 
 @import "compass";
+$baseFontFamily: "PT Sans", "Helvetica Neue", Arial, sans-serif;
+$baseFontSize: 14px; // 1.15em
+$baseLineHeight: 26px; // 1.5em
+$navbarHeight: 62px;
 @import "bootstrap";
 body {
-  padding-top: 60px;
-  background-color: #eee;
+  padding-top: 90px;
+  background: url(retina_wood.png);
 }
 @import "bootstrap-responsive";
 .brand {
+  color: #fff !important;
   margin-left: 0px !important;
-  img {
-    position: absolute;
-    margin-top: -5px;
-  }
+  padding: 15px 20px 15px !important;
+  font-size: 26px !important;
 }
 .span2 {
   display: inline-block;
   padding: 4px 10px 4px;
   margin: 5px 5px 6px;
   line-height: 18px;
+}
+
+.text-left {
+  text-align: left !important;
 }
 
 div.container, div.container-fluid  {
@@ -116,4 +123,12 @@ ul.ui-autocomplete {
       background-color: #FFFCB;
     }
   }
+}
+#copyright {
+  color: #222;
+  font-size: 95%;
+}
+
+.alert {
+  @include box-shadow(rgba(0, 0, 0, 0.35) 0 0 20px);
 }

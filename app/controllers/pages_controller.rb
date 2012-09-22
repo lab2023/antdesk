@@ -3,8 +3,8 @@ class PagesController < ApplicationController
 
   def index
     if params[:search]
-      @search_articles = @current_application.articles.active.search(params[:search])
-      @search_videos = @current_application.videos.active.search(params[:search])
+      @search_articles = @current_application.articles.active.search(params[:search]).paginate(:page => params[:article_page])
+      @search_videos = @current_application.videos.active.search(params[:search]).paginate(:page => params[:video_page])
       add_breadcrumb "Arama", :root_path
     elsif @current_application.present?
       @articles = @current_application.articles.active

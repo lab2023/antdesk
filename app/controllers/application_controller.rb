@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   helper :all
   self.responder = ApplicationResponder
   respond_to :html, :json, :xml
-  WillPaginate.per_page = 20
+  WillPaginate.per_page = 10
   before_filter :current_application
 
   protect_from_forgery
@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_application
-    if 'antdesk.com' === request.domain
+    if app_domains.include? request.domain
       @current_application = ("www" === request.subdomain) || "" === request.subdomain ? nil : Application.find_by_subdomain(request.subdomains.first)
     else
       @current_application = Application.find_by_cname_domain(request.env['HTTP_HOST'])
@@ -44,6 +44,12 @@ class ApplicationController < ActionController::Base
     else
       super
     end
+  end
+
+  private
+
+  def app_domains
+    %w[antdesk.dev antdesk.com]
   end
 
 end

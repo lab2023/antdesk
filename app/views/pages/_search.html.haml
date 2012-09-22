@@ -1,4 +1,8 @@
-= title('Arama')
+= title("Arama '#{params['search']}' arama sonuçları")
+
+= content_for :toolbar_right do
+  %span.badge.badge-inverse= @search_articles.count + @search_videos.count
+  sonuç bulundu
 
 .row-fluid
   .span3
@@ -9,25 +13,30 @@
   .span9
     = render :partial => 'partials/search'
 
+    %h1 Bulunan Makaleler
     - if @search_articles.count > 0
-      %h1 Bulunan Makaleler
       .row-fluid
       - @search_articles.each do |article|
         %p
           %h4
             = link_to(article_path(article)) do
               = article.name.camelize
+      %hr/
+      = will_paginate @search_articles, :param_name => 'article_page'
+
     - else
       %p Makale Bulunamadı
-      %p
-      %p
+
+    %h1 Bulunan Videolar
     - if @search_videos.count > 0
-      %h1 Bulunan Videolar
       .row-fluid
       - @search_videos.each do |video|
         %p
           %h4
             = link_to(video_path(video)) do
               = video.name.camelize
+      %hr/
+      = will_paginate @search_videos, :param_name => 'video_page'
+
     - else
       %p Video Bulunamadı

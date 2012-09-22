@@ -57,7 +57,7 @@
                     %b.caret
                   %ul.dropdown-menu
                     %li= link_to t('nav.profile'), edit_contributor_registration_path
-                    %li.divider
+                    %li= link_to t('nav.dashboard'), contributors_dashboard_index_path
                     %li= link_to t('nav.signout'), destroy_contributor_session_path, :method => :delete
               - elsif !@current_application
                 %li= link_to t('nav.signup'), new_contributor_registration_path
@@ -78,7 +78,10 @@
       .wrapper.row-fluid
         .span12.wrap
           .head
-            .span4.title{:style => "width:100%;"}
+            .span8.title.text-left
               %h2= yield :title
+            .span4.pull-right
+              = yield :toolbar_right
+            .clearfix
           = yield
   = render :partial => 'partials/footer'

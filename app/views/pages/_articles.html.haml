@@ -1,6 +1,6 @@
-%h1 En Son Yazılan Makaleler
+%h3 En Son Yazılan Makaleler
 .row-fluid
-- @articles.uniq.last(10).each do |article|
+- @articles.uniq.last(5).each do |article|
   %p
     %h4
       = link_to(article_path(article)) do

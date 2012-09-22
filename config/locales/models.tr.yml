@@ -37,13 +37,13 @@ tr:
         status: Durum
       video:
         name: Video Başlığı
-        provider: Emded
+        provider: Emded Kodu
         categories: Kategorileri Seçiniz
         status: Durum
       application:
         contributors: İçerik Sağlayıcı Seçiniz
-        cname_domain: Domain
-        subdomain: Kullanıcı Adı
-        name: İsim
+        cname_domain: CNAME Domain
+        subdomain: Subdomain
+        name: Uygulama Adı
         twitter_username: Tiwitter Kuallnıcı Adınız
         facebook_page: Facebook Sayfa Adresiniz
