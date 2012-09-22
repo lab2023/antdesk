@@ -1,8 +1,8 @@
 # Be sure to restart your server when you modify this file.
 
-Support::Application.config.session_store :cookie_store, key: '_support_session', :domain => :all
+Antdesk::Application.config.session_store :cookie_store, key: '_support_session', :domain => :all
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information
 # (create the session table with "rails generate session_migration")
-# Support::Application.config.session_store :active_record_store
+# Antdesk::Application.config.session_store :active_record_store

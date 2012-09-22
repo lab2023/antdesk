@@ -1,4 +1,4 @@
-Support::Application.routes.draw do
+Antdesk::Application.routes.draw do
   get "administrator/index"
 
   devise_for :contributors, :controllers => { :sessions => "contributors/sessions" }
