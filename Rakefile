@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Support::Application.load_tasks
+Antdesk::Application.load_tasks

@@ -15,7 +15,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-module Support
+module Antdesk
   class Application < Rails::Application
 
     config.time_zone = 'Istanbul'
