@@ -2,9 +2,9 @@
   = f.error_notification
 
   .form-inputs
-    = f.association :categories, :collection => @application.categories.all
     = f.input :name
     = f.input :body , :input_html => { :rows => 15}
+    = f.association :categories, :collection => @application.categories.all, :as => :check_boxes, :input_html => {:class => ''}
     = f.input :status, :inline_label => 'Yayınla' , :input_html => {:class => ''}
 
   .form-actions
