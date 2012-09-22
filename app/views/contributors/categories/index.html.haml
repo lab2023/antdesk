@@ -14,7 +14,7 @@
     %tr
       %td
         %i{:class => "#{category.icon_name}"}
-        = category.name.camelize
+        = category.name
       %td
         = link_to(contributors_application_category_path(@application, category), class: 'btn', rel: 'tooltip', title: t('tooltips.show')) do
           %i.icon-eye-open

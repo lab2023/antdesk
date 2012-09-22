@@ -18,8 +18,8 @@
         - video.categories.each do |category|
           %span.label
             %i{:class => "#{category.icon_name}"}
-            = "#{category.name.camelize}"
-      %td= video.name.camelize
+            = "#{category.name}"
+      %td= video.name
       %td= video.status ? 'Yayında':'Yayında Değil'
       %td
         = link_to(contributors_application_video_path(@application, video), class: 'btn', rel: 'tooltip', title: t('tooltips.show')) do

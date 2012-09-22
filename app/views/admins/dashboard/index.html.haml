@@ -22,7 +22,7 @@
           = image_tag application.logo.url(:small)
       %td
         - application.contributors.each do |contributor|
-          %span.label= "#{contributor.name.camelize}"
+          %span.label= "#{contributor.name}"
       %td= application.cname_domain
       %td= application.name
       %td

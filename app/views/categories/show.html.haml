@@ -1,4 +1,4 @@
-= title t(@category.name.camelize)
+= title t(@category.name)
 %ul.breadcrumb
   = '<li>'.html_safe
   = render_breadcrumbs :separator => '<span class="divider">/</span></li><li>'.html_safe
@@ -20,7 +20,7 @@
         %p
           %h4
             = link_to(article_path(article)) do
-              = article.name.camelize
+              = article.name
       %hr/
       = will_paginate @category_articles, :param_name => 'article_page'
     - else
@@ -36,7 +36,7 @@
         %p
           %h4
             = link_to(video_path(video)) do
-              = video.name.camelize
+              = video.name
       %hr/
       = will_paginate @category_videos, :param_name => 'video_page'
     - else

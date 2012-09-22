@@ -20,7 +20,7 @@
         %p
           %h4
             = link_to(article_path(article)) do
-              = article.name.camelize
+              = article.name
       %hr/
       = will_paginate @search_articles, :param_name => 'article_page'
 
@@ -34,7 +34,7 @@
         %p
           %h4
             = link_to(video_path(video)) do
-              = video.name.camelize
+              = video.name
       %hr/
       = will_paginate @search_videos, :param_name => 'video_page'
 
