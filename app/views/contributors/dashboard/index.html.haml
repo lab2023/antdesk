@@ -1,26 +1,24 @@
 = title t('tt.index', resource_name: Application.model_name.human)
 
-- content_for :toolbar_left do
-  = link_to(new_admins_application_path, class: 'btn', rel: 'tooltip', title: t('tooltips.new')) do
-    %i.icon-plus
-
 %table.table.table-striped.table-bordered.table-condensed
   %tr
-    %th Logo
-    %th Uygulama Adresi
-    %th Uygulama Adı
-    %th Twitter Kullanıcı Adı
-    %th Facebook Sayfa Adresi
-    %th{:width => "120px"}
+    %th
+      = t('activerecord.attributes.application.logo')
+    %th
+      = t('activerecord.attributes.application.name')
+    %th
+      = t('activerecord.attributes.application.cname_domain')
+    %th
+      = t('activerecord.attributes.application.subdomain')
+    %th{:width => "35px"}
   - @applications.each do |application|
     %tr
       %td
         .thumbnail
           = image_tag application.logo.url(:small)
-      %td= application.cname_domain
       %td= application.name
-      %td= application.twitter_username
-      %td= application.facebook_page
+      %td= application.cname_domain
+      %td= application.subdomain
       %td
         = link_to(contributors_application_path(application), class: 'btn', rel: 'tooltip', title: t('tooltips.show')) do
           %i.icon-eye-open

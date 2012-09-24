@@ -19,7 +19,10 @@
     =t('videos')
 
 = show_for @application do |s|
-  = s.attribute :cname_domain
+  = s.attribute :logo
   = s.attribute :name
+  = s.attribute :owner_name
+  = s.attribute :subdomain
+  = s.attribute :cname_domain
   = s.attribute :twitter_username
   = s.attribute :facebook_page

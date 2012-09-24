@@ -8,7 +8,8 @@
 
 %table.table.table-striped.table-bordered.table-condensed
   %tr
-    %th Kategori Adı
+    %th
+      = t('activerecord.attributes.category.name')
     %th{:width => "120px"}
   - @categories.each do |category|
     %tr

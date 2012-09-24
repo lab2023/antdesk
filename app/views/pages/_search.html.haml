@@ -1,8 +1,8 @@
-= title("Arama '#{params['search']}' arama sonuçları")
+= title("'#{params['search']}' #{t('search_result')} ")
 
 = content_for :toolbar_right do
   %span.badge.badge-inverse= @search_articles.count + @search_videos.count
-  sonuç bulundu
+  = t('record_found')
 
 .row-fluid
   .span3
@@ -13,7 +13,8 @@
   .span9
     = render :partial => 'partials/search'
 
-    %h1 Bulunan Makaleler
+    %h1
+      = t('found_articles')
     - if @search_articles.count > 0
       .row-fluid
       - @search_articles.each do |article|
@@ -25,9 +26,11 @@
       = will_paginate @search_articles, :param_name => 'article_page'
 
     - else
-      %p Makale Bulunamadı
+      %p
+        = t('not_found_articles')
 
-    %h1 Bulunan Videolar
+    %h1
+      = t('found_videos')
     - if @search_videos.count > 0
       .row-fluid
       - @search_videos.each do |video|
@@ -39,4 +42,5 @@
       = will_paginate @search_videos, :param_name => 'video_page'
 
     - else
-      %p Video Bulunamadı
+      %p
+        = t('not_found_videos')

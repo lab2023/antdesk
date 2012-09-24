@@ -1,4 +1,5 @@
-%h3 En Son Yüklenen Videolar
+%h3
+  = t('last_published_videos')
 .row-fluid
 - @videos.uniq.last(5).each do |video|
   %p

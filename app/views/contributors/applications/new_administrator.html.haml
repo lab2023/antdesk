@@ -6,9 +6,10 @@
 
 = form_tag(administrator_contributors_application_path(@application), :method => :post ) do
 
-  %label.string.control-label{:for => "email"} Eposta
+  %label.string.control-label{:for => "email"}
+    = t('email')
   .form-inputs
     = email_field_tag(:email)
 
   .form-actions
-    %input.btn{:type => "submit", :value => "Gönder"}
+    %input.btn{:type => "submit", :value => t('tooltips.add_to_administrator')}

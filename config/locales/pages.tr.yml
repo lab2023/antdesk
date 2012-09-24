@@ -6,7 +6,7 @@ tr:
     show: Göster
     back: Geri
     change_password: Şifre değiştir
-    add_to_administrator: Yönetici Ekle
+    add_to_administrator: Destek Personeli Ekle
   confirm: Emin misiniz?
   accounts:
     new:

@@ -5,7 +5,7 @@ tr:
     new: "Yeni %{resource_name}"
     show: Detay
     sign_in: Giriş
-    administrator: Yönetici
+    administrator: Destek Personeli
     dashboard:
       welcome: Hoşgeldiniz
     profile:

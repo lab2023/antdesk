@@ -1,4 +1,5 @@
-%h3 En Son Yazılan Makaleler
+%h3
+  = t('last_published_articles')
 .row-fluid
 - @articles.uniq.last(5).each do |article|
   %p

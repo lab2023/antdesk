@@ -2,11 +2,12 @@
 #copyright.container.content
   .row-fluid
     .span8
-      Tüm hakları saklıdır. © 2012
+      = t('all_rights_reserved')
+      © 2012
       %strong
         - if @current_application
           = @current_application.name
     .span4
       .pull-right
-        Hazırlayan
+        = t('prepare')
         %a{:href => "http://www.lab2023.com", :target => "blank"} lab2023 - internet teknolojileri

@@ -8,9 +8,12 @@
 
 %table.table.table-striped.table-bordered.table-condensed
   %tr
-    %th Kategoriler
-    %th Makale Başlığı
-    %th Durum
+    %th
+      = t('categories')
+    %th
+      = t('activerecord.attributes.article.name')
+    %th
+      = t('activerecord.attributes.article.status')
     %th{:width => "120px"}
   - @articles.each do |article|
     %tr
@@ -20,7 +23,7 @@
             %i{:class => "#{category.icon_name}"}
             = "#{category.name}"
       %td= article.name
-      %td= article.status ? 'Yayında':'Yayında Değil'
+      %td= article.status ? t('published'):t('unpublished')
       %td
         = link_to(contributors_application_article_path(@application, article), class: 'btn', rel: 'tooltip', title: t('tooltips.show')) do
           %i.icon-eye-open

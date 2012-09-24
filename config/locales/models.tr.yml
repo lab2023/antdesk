@@ -10,8 +10,8 @@ tr:
       video: Video
       application: Uygulama
     attributes:
-      created_at: "Oluşturulma tarihi"
-      updated_at: "Güncelleme tarihi"
+      created_at: Oluşturulma tarihi
+      updated_at: Güncelleme tarihi
       role:
         name: İsmi
       user:
@@ -29,6 +29,11 @@ tr:
         icon_name: İkon
       contributor:
         name: İsim Soyisim
+        email: Elektronik Posta
+        password: Şifre
+        password_confirmation: Şifre Onayı
+        current_password: Şu An Kullandığız Şifreniz
+        remember_me: Beni Hatırla
       article:
         name: Makale Başlığı
         body: İçerik
@@ -41,9 +46,14 @@ tr:
         categories: Kategorileri Seçiniz
         status: Durum
       application:
+        owner_name: Uygulama Sahibi
         contributors: İçerik Sağlayıcı Seçiniz
         cname_domain: CNAME Domain
         subdomain: Subdomain
         name: Uygulama Adı
-        twitter_username: Tiwitter Kuallnıcı Adınız
+        twitter_username: Twitter Kullanıcı Adınız
         facebook_page: Facebook Sayfa Adresiniz
+        logo: Amblem
+      admin:
+        email: Elektronik Posta
+        password: Şifre

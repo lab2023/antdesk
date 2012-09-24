@@ -10,10 +10,14 @@
 
 %table.table.table-striped.table-bordered.table-condensed
   %tr
-    %th Logo
-    %th İçerik Sağlayıcılar
-    %th Uygulama Adresi
-    %th Uygulama Adı
+    %th
+      =t('logo')
+    %th
+      =t('contributors')
+    %th
+      =t('activerecord.attributes.application.cname_domain')
+    %th
+      =t('activerecord.attributes.application.name')
     %th{:width => "120px"}
   - @applications.each do |application|
     %tr

@@ -12,7 +12,8 @@
       %p
       = render :partial => 'partials/social'
   .span9
-    %h3 Kategoriye Ait Makaleler
+    %h3
+      = t('articles_in_category')
     - if @category_articles.count > 0
 
       .row-fluid
@@ -24,11 +25,11 @@
       %hr/
       = will_paginate @category_articles, :param_name => 'article_page'
     - else
-      %p Kategoriye Ait Makale Bulunamadı
       %p
-      %p
+        = t('articles_in_category_not_found')
 
-    %h3 Kategoriye Ait Videolar
+    %h3
+      =t('videos_in_category')
     - if @category_videos.count > 0
 
       .row-fluid
@@ -40,6 +41,5 @@
       %hr/
       = will_paginate @category_videos, :param_name => 'video_page'
     - else
-      %p Kategoriye Ait Video Bulunamadı
       %p
-      %p
+        = t('videos_in_category_not_found')
