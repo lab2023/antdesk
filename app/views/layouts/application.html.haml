@@ -1,21 +1,19 @@
 !!!
 %html{:lang => "en"}
   %head
-    %meta{:charset => "utf-8"}/
-    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
-    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
-    %title
-      - if @current_application
-        = @current_application.name
-      - else
-        AntDesk
-    %meta{:content => "", :name => "description"}/
-    %meta{:content => "", :name => "author"}/
-    = stylesheet_link_tag "application", :media => "all"
-    = javascript_include_tag "application"
-    = csrf_meta_tags
-    = yield :head
+    = render :partial => 'partials/head'
   %body
+    / Header
+    %header.navbar.navbar-fixed-top
+      = render :partial => 'layouts/contributors/nav'
+    / Messages
+    = render :partial => 'partials/messages'
+    / Contents
+    .container
+      = render :partial => 'partials/contents'
+    / Footer
+    %footer
+      = render :partial => 'partials/footer'
     #fb-root
     :javascript
       (function(d, s, id) {
@@ -25,60 +23,3 @@
         js.src = "//connect.facebook.net/tr_TR/all.js#xfbml=1";
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
-    %header.navbar.navbar-fixed-top
-      %nav.navbar-inner
-        .container
-          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand{:href => "/"}
-            - if @current_application
-              = @current_application.name
-            - else
-              AntDesk
-          .nav-collapse
-            %ul.nav.pull-right
-              - if current_user
-                %li.dropdown
-                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                    %i.icon-user.icon-white
-                    = current_user.name
-                    %b.caret
-                  %ul.dropdown-menu
-                    %li= link_to t('nav.profile'), edit_user_registration_path
-                    %li.divider
-                    %li= link_to t('nav.signout'), destroy_user_session_path, :method => :delete
-              - elsif current_contributor
-                %li.dropdown
-                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                    %i.icon-user.icon-white
-                    = current_contributor.name
-                    %b.caret
-                  %ul.dropdown-menu
-                    %li= link_to t('nav.profile'), edit_contributor_registration_path
-                    %li= link_to t('nav.dashboard'), contributors_dashboard_index_path
-                    %li= link_to t('nav.signout'), destroy_contributor_session_path, :method => :delete
-              - else
-                %li= link_to t('nav.signup'), new_contributor_registration_path
-                %li= link_to t('nav.signin'), new_contributor_session_path
-
-
-    - if flash.count > 0
-      .container
-        .row-fluid
-          - flash.each do |name, msg|
-            %div{:class => "alert alert-#{name}"}
-              %a.close{"data-dismiss" => "alert", :href => "#"} &times;
-              = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
-    .container
-      .wrapper.row-fluid
-        .span12.wrap
-          .head
-            .span8.title.text-left
-              %h2= yield :title
-            .span4.pull-right
-              = yield :toolbar_right
-            .clearfix
-          = yield
-  = render :partial => 'partials/footer'

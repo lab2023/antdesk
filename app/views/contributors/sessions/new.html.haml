@@ -1,6 +1,5 @@
-%h2
-  = t('contributor')
-  = t('sign_in')
+- title "#{t('contributor')} #{t('sign_in')}"
+
 = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
   .inputs
     = f.input :email, :required => false, :autofocus => true
