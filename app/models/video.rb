@@ -9,7 +9,7 @@ class Video < ActiveRecord::Base
   friendly_id :name, use: [:slugged, :history]
 
   def self.search(search)
-    where('videos.name LIKE ?', "%#{search}%").where('videos.status == ?', true)
+    where('videos.name LIKE ?', "%#{search}%")
   end
 
   scope :active, where(:status => true)
