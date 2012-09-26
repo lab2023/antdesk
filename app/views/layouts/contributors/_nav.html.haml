@@ -7,11 +7,11 @@
     %a.brand{:href => contributors_dashboard_index_path}
       Antdesk
     .nav-collapse
-      -if @application.present?
-        %ul.nav
+      %ul.nav.pull-right
+        -if @application.present?
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-              %i.icon-user.icon-white
+              %i.icon-plus.icon-white
               = t('tooltips.new')
               %b.caret
             %ul.dropdown-menu
@@ -48,8 +48,7 @@
               = link_to(new_administrator_contributors_application_path(@application), title: t('tooltips.add_to_administrator')) do
                 %i.icon-user.icon-white
                 = t('tooltips.add_to_administrator')
-
-      %ul.nav.pull-right
+          %li.divider-vertical
         - if current_contributor
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
