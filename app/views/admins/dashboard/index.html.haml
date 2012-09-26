@@ -1,21 +1,17 @@
 = title t('tt.index', resource_name: Application.model_name.human)
 
-- content_for :toolbar_left do
-  = link_to(new_admins_application_path, class: 'btn', rel: 'tooltip', title: t('tooltips.new')) do
-    %i.icon-plus
-- content_for :toolbar_right do
-  = link_to(admins_contributors_path, class: 'btn', rel: 'tooltip', title: t('contributors')) do
-    %i.icon-eye-open
-    =t('contributors')
-
 %table.table.table-striped.table-bordered.table-condensed
   %tr
     %th
       =t('logo')
     %th
+      =t('activerecord.attributes.application.owner_name')
+    %th
       =t('contributors')
     %th
       =t('activerecord.attributes.application.cname_domain')
+    %th
+      =t('activerecord.attributes.application.subdomain')
     %th
       =t('activerecord.attributes.application.name')
     %th{:width => "120px"}
@@ -25,9 +21,15 @@
         .thumbnail
           = image_tag application.logo.url(:small)
       %td
+        %span.label
+          = "#{application.owner_name}"
+      %td
         - application.contributors.each do |contributor|
           %span.label= "#{contributor.name}"
-      %td= application.cname_domain
+      %td
+        = link_to application.cname_domain, 'http://' + application.cname_domain
+      %td
+        = link_to application.subdomain, 'http://' + application.subdomain + '.antdesk.com'
       %td= application.name
       %td
         = link_to(admins_application_path(application), class: 'btn', rel: 'tooltip', title: t('tooltips.show')) do

@@ -10,7 +10,17 @@
     = render :partial => 'partials/messages'
     / Contents
     .container
-      = render :partial => 'partials/contents'
+      .wrapper.row-fluid
+        .span12.wrap
+          .head
+            .span2.pull-left
+              = yield :toolbar_left
+            .span8.title
+              %h2= yield :title
+            .span1.pull-right
+              = yield :toolbar_right
+            .clearfix
+          = yield
     / Footer
     %footer
       = render :partial => 'partials/footer'

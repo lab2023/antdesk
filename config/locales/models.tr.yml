@@ -27,6 +27,8 @@ tr:
       category:
         name: Kategori adı
         icon_name: İkon
+        articles: Makaleler
+        videos: Videolar
       contributor:
         name: İsim Soyisim
         email: Elektronik Posta
@@ -38,16 +40,16 @@ tr:
         name: Makale Başlığı
         body: İçerik
         rendered_body: İçerik
-        categories: Kategorileri Seçiniz
+        categories: Kategoriler
         status: Durum
       video:
         name: Video Başlığı
         provider: Emded Kodu
-        categories: Kategorileri Seçiniz
+        categories: Kategoriler
         status: Durum
       application:
         owner_name: Uygulama Sahibi
-        contributors: İçerik Sağlayıcı Seçiniz
+        contributors: İçerik Sağlayıcılar
         cname_domain: CNAME Domain
         subdomain: Subdomain
         name: Uygulama Adı

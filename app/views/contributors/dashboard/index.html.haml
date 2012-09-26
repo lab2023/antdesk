@@ -5,6 +5,8 @@
     %th
       = t('activerecord.attributes.application.logo')
     %th
+      = t('activerecord.attributes.application.owner_name')
+    %th
       = t('activerecord.attributes.application.name')
     %th
       = t('activerecord.attributes.application.cname_domain')
@@ -16,9 +18,14 @@
       %td
         .thumbnail
           = image_tag application.logo.url(:small)
+      %td
+        %span.label
+          = "#{application.owner_name}"
       %td= application.name
-      %td= application.cname_domain
-      %td= application.subdomain
+      %td
+        = link_to application.cname_domain, 'http://' + application.cname_domain
+      %td
+        = link_to application.subdomain, 'http://' + application.subdomain + '.antdesk.com'
       %td
         = link_to(contributors_application_path(application), class: 'btn', rel: 'tooltip', title: t('tooltips.show')) do
           %i.icon-eye-open
