@@ -10,9 +10,11 @@
     %i.icon-trash
 
 = show_for @application do |s|
-  = s.attribute :logo
+  = s.attribute :logo do
+    = image_tag(@application.logo.url(:small))
   = s.attribute :name
   = s.attribute :owner_name
+  = s.association :contributors
   = s.attribute :subdomain
   = s.attribute :cname_domain
   = s.attribute :twitter_username

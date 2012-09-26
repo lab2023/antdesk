@@ -11,5 +11,7 @@
 - @article.body = markdown(@article.body)
 = show_for @article do |s|
   = s.attribute :name
-  = s.attribute :status
+  = s.association :categories
+  = s.attribute :status do
+    = @article.status ? t('published'):t('unpublished')
   = s.attribute :body

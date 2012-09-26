@@ -10,5 +10,7 @@
 
 = show_for @video do |s|
   = s.attribute :name
-  = s.attribute :status
+  = s.association :categories
+  = s.attribute :status do
+    = @video.status ? t('published'):t('unpublished')
   = s.attribute :provider

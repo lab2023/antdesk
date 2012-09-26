@@ -10,4 +10,5 @@
 
 = show_for @category do |s|
   = s.attribute :name
-  = s.attribute :icon_name
+  = s.association :articles
+  = s.association :videos
