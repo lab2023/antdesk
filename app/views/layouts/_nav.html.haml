@@ -6,9 +6,10 @@
       %span.icon-bar
     %a.brand{:href => "/"}
       - if @current_application
-        = @current_application.name
+        %span = @current_application.name
       - else
-        Antdesk
+        = image_tag "logo.png"
+        %span Antdesk
     .nav-collapse
       %ul.nav.pull-right
         - if current_user
