@@ -1,9 +1,45 @@
+= javascript_include_tag "epiceditor.min.js"
 = simple_form_for([:contributors, @application, @article], :defaults => {:input_html => {:class => 'span6', :rows => 3}}) do |f|
   = f.error_notification
 
   .form-inputs
     = f.input :name
-    = f.input :body , :input_html => { :rows => 15}
+    = f.input :body, :input_html => {:style =>"display:none;"}
+    .editor
+      #epiceditor{:style => "height:500px;border: 1px solid #CCC;"}
+      :javascript
+        var opts = {
+          container: 'epiceditor',
+          basePath: '/assets/epiceditor',
+          clientSideStorage: false,
+          localStorageName: 'epiceditor',
+          parser: marked,
+          file: {
+            name: 'epiceditor',
+            defaultContent: '',
+            autoSave: 100
+          },
+          theme: {
+            base:'/themes/base/epiceditor.css',
+            preview:'/themes/preview/github.css',
+            editor:'/themes/editor/epic-light.css'
+          },
+          focusOnLoad: false,
+          shortcut: {
+            modifier: 18,
+            fullscreen: 70,
+            preview: 80,
+            edit: 79
+          }
+        }
+        var editor = new EpicEditor(opts);
+        editor.load();
+        $("form").submit(function () {
+          $("#article_body").val(editor.getElement('editor').body.innerText);
+        });
+        $(document).ready(function() {
+          editor.getElement('editor').body.innerText = $("#article_body").val();
+        });
     = f.association :categories, :collection => @application.categories.all, :as => :check_boxes, :input_html => {:class => ''}
     = f.input :status, :inline_label => t('post') , :input_html => {:class => ''}
 
