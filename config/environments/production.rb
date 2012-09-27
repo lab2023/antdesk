@@ -46,8 +46,8 @@ Antdesk::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( epiceditor.min.js epiceditor/base/epiceditor.css epiceditor/editor/epic-dark.css
-    epiceditor/editor/epic-light.css epiceditor/preview/github.css epiceditor/preview/preview-dark.css )
+  config.assets.precompile += %w( epiceditor.min.js epiceditor/themes/base/epiceditor.css epiceditor/themes/editor/epic-dark.css
+    epiceditor/themes/editor/epic-light.css epiceditor/themes/preview/github.css epiceditor/themes/preview/preview-dark.css )
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
