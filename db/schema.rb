@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120918070035) do
+ActiveRecord::Schema.define(:version => 20120927092913) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -121,13 +121,6 @@ ActiveRecord::Schema.define(:version => 20120918070035) do
   add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
 
-  create_table "media", :force => true do |t|
-    t.string   "title"
-    t.string   "alt"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -159,13 +152,13 @@ ActiveRecord::Schema.define(:version => 20120918070035) do
 
   create_table "videos", :force => true do |t|
     t.string   "name"
-    t.string   "youtube_id"
-    t.string   "width"
-    t.string   "height"
     t.boolean  "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "slug"
+    t.string   "youtube_id"
+    t.string   "width"
+    t.string   "height"
   end
 
   add_index "videos", ["slug"], :name => "index_videos_on_slug"

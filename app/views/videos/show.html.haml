@@ -10,6 +10,6 @@
       = render @current_application.categories
       %p
       = render :partial => 'partials/social'
-  .span9
+  .span9.well
     .video{:style => 'text-align: center'}
       %iframe{:allowfullscreen => "", :frameborder => "0", :height => "#{@video.height}", :src => "http://www.youtube.com/embed/#{@video.youtube_id}", :width => "#{@video.width}"}
