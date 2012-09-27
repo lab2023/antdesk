@@ -55,7 +55,7 @@ tr:
         name: Uygulama Adı
         twitter_username: Twitter Kullanıcı Adınız
         facebook_page: Facebook Sayfa Adresiniz
-        logo: Amblem
+        logo: Logo
       admin:
         email: Elektronik Posta
         password: Şifre
