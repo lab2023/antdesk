@@ -13,4 +13,6 @@
   = s.association :categories
   = s.attribute :status do
     = @video.status ? t('published'):t('unpublished')
-  = s.attribute :provider
+  = s.attribute :youtube_id
+  = s.attribute :width
+  = s.attribute :height

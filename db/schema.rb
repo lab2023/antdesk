@@ -159,7 +159,9 @@ ActiveRecord::Schema.define(:version => 20120918070035) do
 
   create_table "videos", :force => true do |t|
     t.string   "name"
-    t.text     "provider"
+    t.string   "youtube_id"
+    t.string   "width"
+    t.string   "height"
     t.boolean  "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

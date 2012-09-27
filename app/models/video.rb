@@ -1,9 +1,9 @@
 class Video < ActiveRecord::Base
-  attr_accessible :name, :provider, :category_ids, :status
+  attr_accessible :name, :youtube_id, :width, :height, :category_ids, :status
 
   has_and_belongs_to_many :categories
 
-  validates_presence_of :name, :provider, :categories
+  validates_presence_of :name, :youtube_id, :width, :height, :categories
 
   extend FriendlyId
   friendly_id :name, use: [:slugged, :history]

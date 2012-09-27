@@ -8,7 +8,6 @@ class Contributors::VideosController < Contributors::ApplicationController
 
   def show
     @video = @application.videos.find(params[:id])
-    @video.provider = @video.provider.html_safe
     respond_with(:contributors, @application, @video)
   end
 

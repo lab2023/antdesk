@@ -44,7 +44,9 @@ tr:
         status: Durum
       video:
         name: Video Başlığı
-        provider: Emded Kodu
+        youtube_id: Youtube Video idsi
+        width: Genişlik
+        height: Yükseklik
         categories: Kategoriler
         status: Durum
       application:

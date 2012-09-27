@@ -3,7 +3,9 @@
 
   .form-inputs
     = f.input :name
-    = f.input :provider, :input_html => {:rows => 15}
+    = f.input :youtube_id
+    = f.input :width, :input_html => { :value => 800 }
+    = f.input :height, :input_html => { :value => 500 }
     = f.association :categories, :collection => @application.categories.all, :as => :check_boxes, :input_html => {:class => ''}
     = f.input :status, :inline_label => t('post'), :input_html => {:class => ''}
 
