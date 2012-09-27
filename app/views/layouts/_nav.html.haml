@@ -5,10 +5,10 @@
       %span.icon-bar
       %span.icon-bar
     %a.brand{:href => "/"}
+      = image_tag "logo.png"
       - if @current_application
-        %span = @current_application.name
+        %span= @current_application.name
       - else
-        = image_tag "logo.png"
         %span Antdesk
     .nav-collapse
       %ul.nav.pull-right
