@@ -1,4 +1,5 @@
-= javascript_include_tag "epiceditor.min.js"
+- content_for :head do
+  = javascript_include_tag "epiceditor.min.js"
 = simple_form_for([:contributors, @application, @article], :defaults => {:input_html => {:class => 'span6', :rows => 3}}) do |f|
   = f.error_notification
 
@@ -20,9 +21,9 @@
             autoSave: 100
           },
           theme: {
-            base:'/themes/base/epiceditor.css',
-            preview:'/themes/preview/github.css',
-            editor:'/themes/editor/epic-light.css'
+            base: '#{asset_path "/themes/base/epiceditor.css"}',
+            preview: '#{asset_path "/themes/preview/github.css"}',
+            editor: '#{asset_path "/themes/editor/epic-light.css"}'
           },
           focusOnLoad: false,
           shortcut: {
