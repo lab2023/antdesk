@@ -3,5 +3,5 @@
     %i{:class => "#{category.icon_name}"}
     = category.name
     %span{:style => "font-weight:normal;"}
-      = "(#{category.articles.count + category.videos.count})"
+      = "(#{category.articles.active.count + category.videos.active.count})"
 
