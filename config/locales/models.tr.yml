@@ -56,7 +56,7 @@ tr:
         subdomain: Subdomain
         name: Uygulama Adı
         twitter_username: Twitter Kullanıcı Adınız
-        facebook_page: Facebook Sayfa Adresiniz
+        facebook_page: Facebook Sayfa Adresi (Tam Url)
         logo: Logo
       admin:
         email: Elektronik Posta
